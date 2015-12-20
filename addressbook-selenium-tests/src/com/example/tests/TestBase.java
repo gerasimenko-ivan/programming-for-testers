@@ -15,10 +15,10 @@ import org.testng.annotations.BeforeTest;
 
 public class TestBase {
 
-	private WebDriver driver;
-	private String baseUrl;
-	private boolean acceptNextAlert = true;
-	private StringBuffer verificationErrors = new StringBuffer();
+	private static WebDriver driver;
+	private static String baseUrl;
+	private static boolean acceptNextAlert = true;
+	private static StringBuffer verificationErrors = new StringBuffer();
 
 	@BeforeTest
 	public void setUp() throws Exception {
