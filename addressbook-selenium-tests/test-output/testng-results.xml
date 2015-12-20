@@ -1,28 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="18468" started-at="2015-12-20T17:29:43Z" finished-at="2015-12-20T17:30:01Z">
+  <suite name="Default suite" duration-ms="18943" started-at="2015-12-20T18:20:42Z" finished-at="2015-12-20T18:21:01Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="18468" started-at="2015-12-20T17:29:43Z" finished-at="2015-12-20T17:30:01Z">
-      <class name="com.example.tests.GroupCreationTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.example.tests.GroupCreationTests@d70c109]" name="setUp" is-config="true" duration-ms="13320" started-at="2015-12-20T20:29:43Z" finished-at="2015-12-20T20:29:56Z">
+    <test name="Default test" duration-ms="18943" started-at="2015-12-20T18:20:42Z" finished-at="2015-12-20T18:21:01Z">
+      <class name="com.example.tests.TestBase">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.example.tests.TestBase@282ba1e]" name="setUp" is-config="true" duration-ms="10159" started-at="2015-12-20T21:20:42Z" finished-at="2015-12-20T21:20:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testEmptyGroupCreation()[pri:0, instance:com.example.tests.GroupCreationTests@d70c109]" name="testEmptyGroupCreation" duration-ms="2543" started-at="2015-12-20T20:29:56Z" finished-at="2015-12-20T20:29:59Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testEmptyGroupCreation -->
-        <test-method status="PASS" signature="testNonEmptyGroupCreation()[pri:0, instance:com.example.tests.GroupCreationTests@d70c109]" name="testNonEmptyGroupCreation" duration-ms="1724" started-at="2015-12-20T20:29:59Z" finished-at="2015-12-20T20:30:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testNonEmptyGroupCreation -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.example.tests.GroupCreationTests@d70c109]" name="tearDown" is-config="true" duration-ms="849" started-at="2015-12-20T20:30:00Z" finished-at="2015-12-20T20:30:01Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.example.tests.TestBase@282ba1e]" name="tearDown" is-config="true" duration-ms="872" started-at="2015-12-20T21:21:00Z" finished-at="2015-12-20T21:21:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
+      </class> <!-- com.example.tests.TestBase -->
+      <class name="com.example.tests.ContactCreationTests">
+        <test-method status="PASS" signature="testUntitled()[pri:0, instance:com.example.tests.ContactCreationTests@483bf400]" name="testUntitled" duration-ms="3224" started-at="2015-12-20T21:20:57Z" finished-at="2015-12-20T21:21:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUntitled -->
+      </class> <!-- com.example.tests.ContactCreationTests -->
+      <class name="com.example.tests.GroupCreationTests">
+        <test-method status="PASS" signature="testEmptyGroupCreation()[pri:0, instance:com.example.tests.GroupCreationTests@3ecf72fd]" name="testEmptyGroupCreation" duration-ms="2727" started-at="2015-12-20T21:20:52Z" finished-at="2015-12-20T21:20:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmptyGroupCreation -->
+        <test-method status="PASS" signature="testNonEmptyGroupCreation()[pri:0, instance:com.example.tests.GroupCreationTests@3ecf72fd]" name="testNonEmptyGroupCreation" duration-ms="1937" started-at="2015-12-20T21:20:55Z" finished-at="2015-12-20T21:20:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNonEmptyGroupCreation -->
       </class> <!-- com.example.tests.GroupCreationTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

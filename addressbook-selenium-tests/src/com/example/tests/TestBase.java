@@ -10,6 +10,7 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -40,7 +41,7 @@ public class TestBase {
 	    driver.findElement(By.linkText("group page")).click();
 	}
 
-	protected void submitGroupCreation() {
+	protected void submitGroupForm() {
 	    driver.findElement(By.name("submit")).click();
 	}
 
@@ -97,5 +98,44 @@ public class TestBase {
 	      acceptNextAlert = true;
 	    }
 	  }
+
+	protected void gotoAddNewContact() {
+		driver.findElement(By.linkText("add new")).click();
+	}
+
+	protected void gotoHomePage() {
+		driver.findElement(By.linkText("home")).click();
+	}
+
+	protected void submitContactForm() {
+		driver.findElement(By.name("submit")).click();
+	}
+
+	protected void fillContactForm() {
+		driver.findElement(By.name("firstname")).sendKeys("Test-First-Name-1");
+	    driver.findElement(By.name("lastname")).clear();
+	    driver.findElement(By.name("lastname")).sendKeys("Test-Last-Name-1");
+	    driver.findElement(By.name("address")).clear();
+	    driver.findElement(By.name("address")).sendKeys("Any Street name Building 1 app.123\n111023");
+	    driver.findElement(By.name("home")).clear();
+	    driver.findElement(By.name("home")).sendKeys("456789");
+	    driver.findElement(By.name("mobile")).clear();
+	    driver.findElement(By.name("mobile")).sendKeys("+123456787654");
+	    driver.findElement(By.name("work")).clear();
+	    driver.findElement(By.name("work")).sendKeys("345678(7823)");
+	    driver.findElement(By.name("email")).clear();
+	    driver.findElement(By.name("email")).sendKeys("test.mail1@mail.rn");
+	    driver.findElement(By.name("email2")).clear();
+	    driver.findElement(By.name("email2")).sendKeys("test.mail2@mail.rn");
+	    new Select(driver.findElement(By.name("bday"))).selectByVisibleText("4");
+	    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText("September");
+	    driver.findElement(By.name("byear")).clear();
+	    driver.findElement(By.name("byear")).sendKeys("1956");
+	    new Select(driver.findElement(By.name("new_group"))).selectByVisibleText("test-group 1");
+	    driver.findElement(By.name("address2")).clear();
+	    driver.findElement(By.name("address2")).sendKeys("secondary address");
+	    driver.findElement(By.name("phone2")).clear();
+	    driver.findElement(By.name("phone2")).sendKeys("1234567");
+	}
 
 }
