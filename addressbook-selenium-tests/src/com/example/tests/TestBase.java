@@ -10,8 +10,8 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 public class TestBase {
 
@@ -20,14 +20,14 @@ public class TestBase {
 	private boolean acceptNextAlert = true;
 	private StringBuffer verificationErrors = new StringBuffer();
 
-	@BeforeClass
+	@BeforeTest
 	public void setUp() throws Exception {
 	    driver = new FirefoxDriver();
 	    baseUrl = "http://localhost/";
 	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  }
 
-	@AfterClass
+	@AfterTest
 	public void tearDown() throws Exception {
 	    driver.quit();
 	    String verificationErrorString = verificationErrors.toString();
