@@ -30,4 +30,17 @@ public class ContactCreationTests extends TestBase {
     submitContactForm();
     gotoHomePage();
   }
+  
+  @Test
+  public void testEmptyContactCreation() throws Exception {
+	openMainPage();
+    gotoAddNewContact();
+    ContactData contact = new ContactData();
+    contact.birthDay = "-";
+    contact.birthMonth = "-";
+    contact.contactGroup = "test-group 1";
+	fillContactForm(contact);
+    submitContactForm();
+    gotoHomePage();
+  }
 }
