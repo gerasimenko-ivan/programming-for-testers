@@ -16,6 +16,9 @@ public class ContactData {
 	public String addressSecondary;
 	public String phoneSecondary;
 
+	public ContactData() {
+	}
+	
 	public ContactData(String firstName, String lastName, String address, String homePhone, String mobilePhone,
 			String workPhone, String email_1, String email_2, String birthDay, String birthMonth, String birthYear,
 			String contactGroup, String addressSecondary, String phoneSecondary) {
