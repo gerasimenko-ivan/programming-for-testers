@@ -35,10 +35,12 @@ public class ContactCreationTests extends TestBase {
   public void testEmptyContactCreation() throws Exception {
 	openMainPage();
     gotoAddNewContact();
+    
+    // empty contact form data
     ContactData contact = new ContactData();
     contact.birthDay = "-";
     contact.birthMonth = "-";
-    contact.contactGroup = "test-group 1";
+    contact.contactGroup = "[none]";
 	fillContactForm(contact);
     submitContactForm();
     gotoHomePage();
