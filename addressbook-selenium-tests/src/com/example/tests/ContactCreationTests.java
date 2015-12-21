@@ -41,6 +41,7 @@ public class ContactCreationTests extends TestBase {
     contact.birthDay = "-";
     contact.birthMonth = "-";
     contact.contactGroup = "[none]";
+    
 	fillContactForm(contact);
     submitContactForm();
     gotoHomePage();
