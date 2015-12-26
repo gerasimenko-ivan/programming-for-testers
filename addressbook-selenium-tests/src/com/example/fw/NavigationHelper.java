@@ -9,15 +9,15 @@ public class NavigationHelper extends HelperBase {
 	}
 
 	public void gotoGroupsPage() {
-		driver.findElement(By.linkText("groups")).click();
+		click(By.linkText("groups"));
 	}
 
 	public void gotoAddNewContact() {
-		driver.findElement(By.linkText("add new")).click();
+		click(By.linkText("add new"));
 	}
 
 	public void gotoHomePage() {
-		driver.findElement(By.linkText("home")).click();
+		click(By.linkText("home"));
 	}
 
 	public void openMainPage() {

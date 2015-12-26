@@ -12,11 +12,11 @@ public class GroupHelper extends HelperBase {
 	}
 
 	public void submitGroupForm() {
-		driver.findElement(By.name("submit")).click();
+		click(By.name("submit"));
 	}
 
 	public void initGroupCreation() {
-		driver.findElement(By.name("new")).click();
+		click(By.name("new"));
 	}
 
 	public void fillGroupForm(ApplicationManager applicationManager, TestBase testBase, GroupData group) {
@@ -26,6 +26,6 @@ public class GroupHelper extends HelperBase {
 	}
 
 	public void returnToGroupsPage() {
-	    driver.findElement(By.linkText("group page")).click();
+		click(By.linkText("group page"));
 	}
 }

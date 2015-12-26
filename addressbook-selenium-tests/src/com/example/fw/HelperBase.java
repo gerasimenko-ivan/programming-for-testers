@@ -58,4 +58,8 @@ public abstract class HelperBase {
 	protected void select(By locator, String text) {
 		new Select(driver.findElement(locator)).selectByVisibleText(text);
 	}
+
+	protected void click(By locator) {
+		driver.findElement(locator).click();
+	}
 }

@@ -13,7 +13,7 @@ public class ContactHelper extends HelperBase {
 	}
 
 	public void submitContactForm() {
-		driver.findElement(By.name("submit")).click();
+		click(By.name("submit"));
 	}
 
 	public void fillContactForm(ApplicationManager applicationManager, TestBase testBase, ContactData contact) {
@@ -33,7 +33,7 @@ public class ContactHelper extends HelperBase {
 	    select(By.name("bmonth"), contact.birthMonth);
 	    type(By.name("byear"), contact.birthYear);
 	    // group
-	    new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contact.contactGroup);
+	    select(By.name("new_group"), contact.contactGroup);
 	    // extra address
 	    type(By.name("address2"), contact.addressSecondary);
 	    // extra contact
