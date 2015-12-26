@@ -20,12 +20,9 @@ public class GroupHelper extends HelperBase {
 	}
 
 	public void fillGroupForm(ApplicationManager applicationManager, TestBase testBase, GroupData group) {
-	    driver.findElement(By.name("group_name")).clear();
-	    driver.findElement(By.name("group_name")).sendKeys(group.name);
-	    driver.findElement(By.name("group_header")).clear();
-	    driver.findElement(By.name("group_header")).sendKeys(group.header);
-	    driver.findElement(By.name("group_footer")).clear();
-	    driver.findElement(By.name("group_footer")).sendKeys(group.footer);
+	    type(By.name("group_name"), group.name);
+	    type(By.name("group_header"), group.header);
+	    type(By.name("group_footer"), group.footer);
 	}
 
 	public void returnToGroupsPage() {

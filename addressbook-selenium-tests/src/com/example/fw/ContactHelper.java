@@ -18,37 +18,26 @@ public class ContactHelper extends HelperBase {
 
 	public void fillContactForm(ApplicationManager applicationManager, TestBase testBase, ContactData contact) {
 		// name
-		driver.findElement(By.name("firstname")).clear();
-		driver.findElement(By.name("firstname")).sendKeys(contact.firstName);
-	    driver.findElement(By.name("lastname")).clear();
-	    driver.findElement(By.name("lastname")).sendKeys(contact.lastName);
-	    // address
-	    driver.findElement(By.name("address")).clear();
-	    driver.findElement(By.name("address")).sendKeys(contact.address);
-	    // contacts
-	    driver.findElement(By.name("home")).clear();
-	    driver.findElement(By.name("home")).sendKeys(contact.homePhone);
-	    driver.findElement(By.name("mobile")).clear();
-	    driver.findElement(By.name("mobile")).sendKeys(contact.mobilePhone);
-	    driver.findElement(By.name("work")).clear();
-	    driver.findElement(By.name("work")).sendKeys(contact.workPhone);
-	    driver.findElement(By.name("email")).clear();
-	    driver.findElement(By.name("email")).sendKeys(contact.email_1);
-	    driver.findElement(By.name("email2")).clear();
-	    driver.findElement(By.name("email2")).sendKeys(contact.email_2);
+		type(By.name("firstname"), contact.firstName);
+		type(By.name("lastname"), contact.lastName);
+		// address
+		type(By.name("address"), contact.address);
+		// contacts
+		type(By.name("home"), contact.homePhone);
+	    type(By.name("mobile"), contact.mobilePhone);
+	    type(By.name("work"), contact.workPhone);
+	    type(By.name("email"), contact.email_1);
+	    type(By.name("email2"), contact.email_2);
 	    // birth date
-	    new Select(driver.findElement(By.name("bday"))).selectByVisibleText(contact.birthDay);
-	    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(contact.birthMonth);
-	    driver.findElement(By.name("byear")).clear();
-	    driver.findElement(By.name("byear")).sendKeys(contact.birthYear);
+		select(By.name("bday"), contact.birthDay);
+	    select(By.name("bmonth"), contact.birthMonth);
+	    type(By.name("byear"), contact.birthYear);
 	    // group
 	    new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contact.contactGroup);
 	    // extra address
-	    driver.findElement(By.name("address2")).clear();
-	    driver.findElement(By.name("address2")).sendKeys(contact.addressSecondary);
+	    type(By.name("address2"), contact.addressSecondary);
 	    // extra contact
-	    driver.findElement(By.name("phone2")).clear();
-	    driver.findElement(By.name("phone2")).sendKeys(contact.phoneSecondary);
+	    type(By.name("phone2"), contact.phoneSecondary);
 	}
 
 }
