@@ -1,10 +1,8 @@
 package com.example.fw;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
 
 import com.example.tests.ContactData;
-import com.example.tests.TestBase;
 
 public class ContactHelper extends HelperBase {
 
@@ -49,8 +47,12 @@ public class ContactHelper extends HelperBase {
 		click(By.xpath(locator));
 	}
 
-	public void pressDeleteContact() {
+	public void submitDeleteContact() {
 		click(By.xpath("//input[@value='Delete']"));
+	}
+
+	public void submitUpdate() {
+		click(By.xpath("//input[@value='Update']"));
 	}
 
 }
