@@ -10,7 +10,7 @@ public class GroupRemovalTests extends TestBase {
 	    app.getNavigationHelper().gotoGroupsPage();
 	    
 	    app.getGroupHelper().selectGroup(1);
-	    app.getGroupHelper().pressDeleteGroups();
+	    app.getGroupHelper().submitDeleteGroups();
 	    app.getGroupHelper().returnToGroupsPage();
 	}
 
