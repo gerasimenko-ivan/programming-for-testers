@@ -19,7 +19,7 @@ public class GroupHelper extends HelperBase {
 		click(By.name("new"));
 	}
 
-	public void fillGroupForm(ApplicationManager applicationManager, TestBase testBase, GroupData group) {
+	public void fillGroupForm(GroupData group) {
 	    type(By.name("group_name"), group.name);
 	    type(By.name("group_header"), group.header);
 	    type(By.name("group_footer"), group.footer);

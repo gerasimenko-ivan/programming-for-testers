@@ -26,7 +26,7 @@ public class ContactCreationTests extends TestBase {
     contact.addressSecondary = "secondary address";
     contact.phoneSecondary = "1234567";
     
-	app.getContactHelper().fillContactForm(app, this, contact);
+	app.getContactHelper().fillContactForm(contact);
     app.getContactHelper().submitContactForm();
     app.getNavigationHelper().gotoHomePage();
   }
@@ -42,7 +42,7 @@ public class ContactCreationTests extends TestBase {
     contact.birthMonth = "-";
     contact.contactGroup = "[none]";
     
-	app.getContactHelper().fillContactForm(app, this, contact);
+	app.getContactHelper().fillContactForm(contact);
     app.getContactHelper().submitContactForm();
     app.getNavigationHelper().gotoHomePage();
   }

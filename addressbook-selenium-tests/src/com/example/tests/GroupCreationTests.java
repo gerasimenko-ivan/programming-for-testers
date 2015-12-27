@@ -12,7 +12,7 @@ public class GroupCreationTests extends TestBase {
     group.name = "test-group-4";
     group.header = "HEADER\ntest-group-4";
     group.footer = "FOOTER\ntest-group-4";
-	app.getGroupHelper().fillGroupForm(app, this, group);
+	app.getGroupHelper().fillGroupForm(group);
     app.getGroupHelper().submitGroupForm();
     app.getGroupHelper().returnToGroupsPage();
   }
@@ -22,7 +22,7 @@ public class GroupCreationTests extends TestBase {
 	app.getNavigationHelper().openMainPage();
     app.getNavigationHelper().gotoGroupsPage();
     app.getGroupHelper().initGroupCreation();
-	app.getGroupHelper().fillGroupForm(app, this, new GroupData("", "", ""));
+	app.getGroupHelper().fillGroupForm(new GroupData("", "", ""));
     app.getGroupHelper().submitGroupForm();
     app.getGroupHelper().returnToGroupsPage();
   }

@@ -16,7 +16,7 @@ public class ContactHelper extends HelperBase {
 		click(By.name("submit"));
 	}
 
-	public void fillContactForm(ApplicationManager applicationManager, TestBase testBase, ContactData contact) {
+	public void fillContactForm(ContactData contact) {
 		// name
 		type(By.name("firstname"), contact.firstName);
 		type(By.name("lastname"), contact.lastName);
