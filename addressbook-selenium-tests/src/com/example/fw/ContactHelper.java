@@ -40,4 +40,17 @@ public class ContactHelper extends HelperBase {
 	    type(By.name("phone2"), contact.phoneSecondary);
 	}
 
+	public void returnToHomePage() {
+		click(By.linkText("home page"));
+	}
+
+	public void initContactEdit(int index) {
+		String locator = "//table[@id='maintable']//tr[" + (index + 1) + "]/td/a/img[@title='Edit']";
+		click(By.xpath(locator));
+	}
+
+	public void pressDeleteContact() {
+		click(By.xpath("//input[@value='Delete']"));
+	}
+
 }
