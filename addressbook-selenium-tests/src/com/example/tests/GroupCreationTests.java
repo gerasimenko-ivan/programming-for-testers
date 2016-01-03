@@ -1,5 +1,6 @@
 package com.example.tests;
 
+import java.util.Collections;
 import java.util.List;
 import static org.testng.Assert.assertEquals;
 
@@ -28,7 +29,9 @@ public class GroupCreationTests extends TestBase {
     List<GroupData> newGroups = app.getGroupHelper().getGroups();
     
     // compare states
-    assertEquals(newGroups.size(), initialGroups.size() + 1);
+    initialGroups.add(group);
+    Collections.sort(initialGroups);
+    assertEquals(newGroups, initialGroups);
   }
   
   //@Test
