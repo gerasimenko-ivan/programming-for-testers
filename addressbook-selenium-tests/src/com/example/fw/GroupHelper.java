@@ -33,7 +33,7 @@ public class GroupHelper extends HelperBase {
 	}
 
 	public void selectGroup(int index) {
-		click(By.xpath("//input[@name='selected[]'][" + index + "]"));
+		click(By.xpath("//input[@name='selected[]'][" + (index + 1) + "]"));
 	}
 
 	public void submitDeleteGroups() {
