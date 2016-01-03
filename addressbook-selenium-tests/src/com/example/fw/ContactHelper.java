@@ -67,7 +67,7 @@ public class ContactHelper extends HelperBase {
 			contact.lastName = tableRow.findElement(By.xpath("td[2]")).getText();
 			contact.firstName = tableRow.findElement(By.xpath("td[3]")).getText();
 			String[] emails = tableRow.findElement(By.xpath("td/input")).getAttribute("accept").split(";");
-			contact.email_1 = emails.length == 1 ? emails[0] : null;
+			contact.email_1 = (emails.length > 0 && emails[0].length() > 0) ? emails[0] : null;
 			contact.email_2 = emails.length > 1 ? emails[1] : null;
 			contact.homePhone = tableRow.findElement(By.xpath("td[5]")).getText();
 			contacts.add(contact);
