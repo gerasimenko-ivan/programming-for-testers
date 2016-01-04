@@ -1,6 +1,6 @@
 package com.example.tests;
 
-public class ContactData {
+public class ContactData implements Comparable<ContactData> {
 	public String firstName;
 	public String lastName;
 	public String address;
@@ -37,4 +37,73 @@ public class ContactData {
 		this.addressSecondary = addressSecondary;
 		this.phoneSecondary = phoneSecondary;
 	}
+
+	@Override
+	public int compareTo(ContactData contact) {
+		String thisLastName = this.lastName == null ? "" : this.lastName;
+		String thatLastName = contact.lastName == null ? "" : contact.lastName;
+		int comparedLastName = thisLastName.toLowerCase().compareTo(thatLastName.toLowerCase());
+		
+		if (comparedLastName != 0) {
+			return comparedLastName;
+		} else {
+			String thisFirstName = this.firstName == null ? "" : this.firstName;
+			String thatFirstName = contact.firstName == null ? "" : contact.firstName;
+			return thisFirstName.toLowerCase().compareTo(thatFirstName.toLowerCase());
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "ContactData [firstName=" + firstName + ", lastName=" + lastName + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((email_1 == null) ? 0 : email_1.hashCode());
+		result = prime * result + ((email_2 == null) ? 0 : email_2.hashCode());
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((homePhone == null) ? 0 : homePhone.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ContactData other = (ContactData) obj;
+		if (email_1 == null) {
+			if (other.email_1 != null)
+				return false;
+		} else if (!email_1.equals(other.email_1))
+			return false;
+		if (email_2 == null) {
+			if (other.email_2 != null)
+				return false;
+		} else if (!email_2.equals(other.email_2))
+			return false;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
+		if (homePhone == null) {
+			if (other.homePhone != null)
+				return false;
+		} else if (!homePhone.equals(other.homePhone))
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		return true;
+	}	
 }
