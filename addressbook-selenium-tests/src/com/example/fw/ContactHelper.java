@@ -47,7 +47,8 @@ public class ContactHelper extends HelperBase {
 	}
 
 	public void initContactEdit(int index) {
-		String locator = "//table[@id='maintable']//tr[" + (index + 1) + "]/td/a/img[@title='Edit']";
+		// (index + 2) - numiration from 1 and 1 is for table header
+		String locator = "//table[@id='maintable']//tr[" + (index + 2) + "]/td/a/img[@title='Edit']";
 		click(By.xpath(locator));
 	}
 
