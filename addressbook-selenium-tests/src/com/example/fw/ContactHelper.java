@@ -65,6 +65,7 @@ public class ContactHelper extends HelperBase {
 		List<WebElement> tableRows = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr[@name='entry']"));
 		for (WebElement tableRow : tableRows) {
 			ContactData contact = new ContactData();
+			contact.id = Integer.parseInt(tableRow.findElement(By.xpath("td/input")).getAttribute("value"));
 			contact.lastName = tableRow.findElement(By.xpath("td[2]")).getText();
 			contact.firstName = tableRow.findElement(By.xpath("td[3]")).getText();
 			String[] emails = tableRow.findElement(By.xpath("td/input")).getAttribute("accept").split(";");
