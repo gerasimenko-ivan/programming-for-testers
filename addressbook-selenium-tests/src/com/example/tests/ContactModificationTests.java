@@ -33,7 +33,7 @@ public class ContactModificationTests extends TestBase {
 		ContactData oldContact = initialContacts.get(0);
 		initialContacts.remove(0);
 		oldContact.update(contact);
-		initialContacts.add(0, oldContact);
+		initialContacts.add(oldContact);
 		Collections.sort(initialContacts);
 		assertEquals(newContacts, initialContacts);
 	}
