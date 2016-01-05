@@ -62,6 +62,7 @@ public class ContactCreationTests extends TestBase {
 
 		// empty contact form data
 		ContactData contact = new ContactData();
+		contact.id = Integer.MAX_VALUE;
 		contact.lastName = "";
 		contact.firstName = "";
 		contact.homePhone = "";
