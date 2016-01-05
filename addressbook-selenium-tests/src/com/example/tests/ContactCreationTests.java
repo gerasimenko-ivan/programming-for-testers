@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class ContactCreationTests extends TestBase {
 
-	//@Test
+	@Test
 	public void testNonEmptyContactCreation() throws Exception {
 		app.getNavigationHelper().openMainPage();
 
@@ -61,6 +61,9 @@ public class ContactCreationTests extends TestBase {
 
 		// empty contact form data
 		ContactData contact = new ContactData();
+		contact.lastName = "";
+		contact.firstName = "";
+		contact.homePhone = "";
 		contact.birthDay = "-";
 		contact.birthMonth = "-";
 		contact.contactGroup = "[none]";
