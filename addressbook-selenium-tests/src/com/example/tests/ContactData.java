@@ -1,6 +1,7 @@
 package com.example.tests;
 
 public class ContactData implements Comparable<ContactData> {
+	public int id;
 	public String firstName;
 	public String lastName;
 	public String address;
@@ -19,9 +20,10 @@ public class ContactData implements Comparable<ContactData> {
 	public ContactData() {
 	}
 	
-	public ContactData(String firstName, String lastName, String address, String homePhone, String mobilePhone,
+	public ContactData(int id, String firstName, String lastName, String address, String homePhone, String mobilePhone,
 			String workPhone, String email_1, String email_2, String birthDay, String birthMonth, String birthYear,
 			String contactGroup, String addressSecondary, String phoneSecondary) {
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
@@ -49,7 +51,14 @@ public class ContactData implements Comparable<ContactData> {
 		} else {
 			String thisFirstName = this.firstName == null ? "" : this.firstName;
 			String thatFirstName = contact.firstName == null ? "" : contact.firstName;
-			return thisFirstName.toLowerCase().compareTo(thatFirstName.toLowerCase());
+			int comparedFirstName = thisFirstName.toLowerCase().compareTo(thatFirstName.toLowerCase());
+			
+			if (comparedFirstName != 0) {
+				return comparedFirstName;
+			} else {
+				return this.id - contact.id;
+			}
+			
 		}
 	}
 
@@ -105,5 +114,50 @@ public class ContactData implements Comparable<ContactData> {
 		} else if (!lastName.equals(other.lastName))
 			return false;
 		return true;
+	}
+
+	public void update(ContactData contact) {
+		if (contact.firstName != null) {
+			this.firstName = contact.firstName;			
+		}
+		if (contact.lastName != null) {
+			this.lastName = contact.lastName;
+		}
+		if (contact.address != null) {
+			this.address = contact.address;
+		}
+		if (contact.homePhone != null) {
+			this.homePhone = contact.homePhone;
+		}
+		if (contact.mobilePhone != null) {
+			this.mobilePhone = contact.mobilePhone;
+		}
+		if (contact.workPhone != null) {
+			this.workPhone = contact.workPhone;
+		}
+		if (contact.email_1 != null) {
+			this.email_1 = contact.email_1;
+		}
+		if (contact.email_2 != null) {
+			this.email_2 = contact.email_2;
+		}
+		if (contact.birthDay != null) {
+			this.birthDay = contact.birthDay;
+		}
+		if (contact.birthMonth != null) {
+			this.birthMonth = contact.birthMonth;
+		}
+		if (contact.birthYear != null) {
+			this.birthYear = contact.birthYear;
+		}
+		if (contact.contactGroup != null) {
+			this.contactGroup = contact.contactGroup;
+		}
+		if (contact.addressSecondary != null) {
+			this.addressSecondary = contact.addressSecondary;
+		}
+		if (contact.phoneSecondary != null) {
+			this.phoneSecondary = contact.phoneSecondary;
+		}
 	}	
 }
