@@ -18,7 +18,7 @@ public class GroupRemovalTests extends TestBase {
 	    // save initial groups
 	    List<GroupData> initialGroups = app.getGroupHelper().getGroups();
 	    
-	    for (int i = 0; i < 25 && initialGroups.size() > 30; i++) {
+	    //for (int i = 0; i < 25 && initialGroups.size() > 30; i++) {
 	    	Random rnd = new Random();
 		    int index = rnd.nextInt(initialGroups.size() - 1);
 		    
@@ -27,7 +27,7 @@ public class GroupRemovalTests extends TestBase {
 		    app.getGroupHelper().submitDeleteGroups();
 		    app.getGroupHelper().returnToGroupsPage();	
 		    initialGroups.remove(index);
-	    }
+	    //}
 	    
 	    // save new groups
 	    List<GroupData> newGroups = app.getGroupHelper().getGroups();
