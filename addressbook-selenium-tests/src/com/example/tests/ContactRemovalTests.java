@@ -16,19 +16,21 @@ public class ContactRemovalTests extends TestBase {
 		// save initial contacts list
 		List<ContactData> initialContacts = app.getContactHelper().getContacts();
 		
-		Random rnd = new Random();
-		int index = rnd.nextInt(initialContacts.size() - 1);
+		for (int i = 0; i < 25 && initialContacts.size() > 20; i++) {
+			Random rnd = new Random();
+			int index = rnd.nextInt(initialContacts.size() - 1);
 
-		// actions
-		app.getContactHelper().initContactEdit(index);
-		app.getContactHelper().submitDeleteContact();
-		app.getContactHelper().returnToHomePage();
+			// actions
+			app.getContactHelper().initContactEdit(index);
+			app.getContactHelper().submitDeleteContact();
+			app.getContactHelper().returnToHomePage();
+			initialContacts.remove(index);
+		}
 
 		// save new contact list
 		List<ContactData> newContacts = app.getContactHelper().getContacts();
 
 		// compare states
-		initialContacts.remove(index);
 		assertEquals(newContacts, initialContacts);
 	}
 }
