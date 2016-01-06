@@ -1,5 +1,6 @@
 package com.example.tests;
 
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -96,5 +97,20 @@ public class TestBase {
 			return "";
 		else
 			return generateValidEmail();
+	}
+	
+	public String generateRandomMonth(boolean withEmptyValue, String emptyValue) {
+		Random rnd = new Random();
+		String month = Month.of(1 + rnd.nextInt(12)).toString().toLowerCase();
+		month = month.substring(0, 1).toUpperCase() + month.substring(1);
+		if (withEmptyValue == true) {
+			if (rnd.nextInt(13) == 0) {
+				return emptyValue;
+			} else {
+				return month;
+			}
+		} else {
+			return month; 
+		}
 	}
 }
