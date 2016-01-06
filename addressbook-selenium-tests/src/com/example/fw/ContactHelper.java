@@ -69,12 +69,21 @@ public class ContactHelper extends HelperBase {
 			contact.lastName = tableRow.findElement(By.xpath("td[2]")).getText();
 			contact.firstName = tableRow.findElement(By.xpath("td[3]")).getText();
 			String[] emails = tableRow.findElement(By.xpath("td/input")).getAttribute("accept").split(";");
-			contact.email_1 = (emails.length > 0 && emails[0].length() > 0) ? emails[0] : null;
-			contact.email_2 = emails.length > 1 ? emails[1] : null;
+			contact.email_1 = (emails.length > 0 && emails[0].length() > 0) ? emails[0] : "";
+			contact.email_2 = emails.length > 1 ? emails[1] : "";
 			contact.homePhone = tableRow.findElement(By.xpath("td[5]")).getText();
 			contacts.add(contact);
 		}
 		return contacts;
+	}
+
+	public ArrayList<String> getGroupSelectOptions() {
+		ArrayList<String> optionsList = new ArrayList<String>();
+		List<WebElement> optionsWebElements = driver.findElements(By.xpath("//select[@name='new_group']/option"));
+		for (WebElement option : optionsWebElements) {
+			optionsList.add(option.getText());
+		}
+		return optionsList;
 	}
 
 }
