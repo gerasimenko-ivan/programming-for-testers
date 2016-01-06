@@ -45,4 +45,31 @@ public class TestBase {
 			return "test " + rnd.nextInt();
 		}
 	}
+
+	public String generateValidPhoneNumber() {
+		Random rnd = new Random();
+		String phone = "";
+		if (rnd.nextBoolean() == true)
+			phone += "+";
+		phone += rnd.nextInt(10);
+		if (rnd.nextInt(5) == 0) {
+			phone += rnd.nextInt(Integer.MAX_VALUE);
+		} else {
+			if (rnd.nextBoolean() == true) {
+				phone += "(";
+				phone += (100 + rnd.nextInt(900)); 
+				phone += ")";
+			} else {
+				phone += (100 + rnd.nextInt(900));
+				phone += "-";
+			}
+			phone += (100 + rnd.nextInt(900));
+			phone += "-";
+			phone += (10 + rnd.nextInt(90));
+			phone += "-";
+			phone += (10 + rnd.nextInt(90));
+		}
+
+		return phone;
+	}
 }
