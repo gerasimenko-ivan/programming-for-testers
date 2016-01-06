@@ -18,6 +18,7 @@ public class ContactData implements Comparable<ContactData> {
 	public String phoneSecondary;
 
 	public ContactData() {
+		this.id = Integer.MAX_VALUE;
 	}
 	
 	public ContactData(int id, String firstName, String lastName, String address, String homePhone, String mobilePhone,

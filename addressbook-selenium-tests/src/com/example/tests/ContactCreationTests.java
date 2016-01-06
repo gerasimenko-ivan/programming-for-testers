@@ -21,7 +21,6 @@ public class ContactCreationTests extends TestBase {
 
 		// contact form data
 		ContactData contact = new ContactData();
-		contact.id = Integer.MAX_VALUE;
 		contact.firstName = "B New first name";
 		contact.lastName = "New last name";
 		contact.address = "Any Street name Building 1 app.123\n111023";
@@ -62,7 +61,6 @@ public class ContactCreationTests extends TestBase {
 
 		// empty contact form data
 		ContactData contact = new ContactData();
-		contact.id = Integer.MAX_VALUE;
 		contact.lastName = "";
 		contact.firstName = "";
 		contact.homePhone = "";
