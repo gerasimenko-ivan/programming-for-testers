@@ -72,4 +72,14 @@ public class TestBase {
 
 		return phone;
 	}
+	
+	public String generateValidEmail() {
+		Random rnd = new Random();
+		String email = "";
+		email += rnd.nextInt(Integer.MAX_VALUE);
+		email += "@";
+		email += rnd.nextInt(Integer.MAX_VALUE);
+		email += ".tst";
+		return email;
+	}
 }
