@@ -82,4 +82,19 @@ public class TestBase {
 		email += ".tst";
 		return email;
 	}
+	
+	public String generateValidEmail(int emptyEmailProbability) {
+		Random rnd = new Random();
+		
+		// normalize input data
+		if (emptyEmailProbability >= 100)
+			emptyEmailProbability = 99;
+		if (emptyEmailProbability < 1)
+			emptyEmailProbability = 1;
+		
+		if (emptyEmailProbability - 1 > rnd.nextInt(100))
+			return "";
+		else
+			return generateValidEmail();
+	}
 }
