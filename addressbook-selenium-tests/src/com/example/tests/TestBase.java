@@ -59,7 +59,8 @@ public class TestBase {
 			contact.workPhone = generateValidPhoneNumber();
 			contact.email_1 = generateValidEmail(33);
 			contact.email_2 = generateValidEmail(66);
-			contact.birthDay = Integer.toString(rnd.nextInt(32)).replace("0", "-");
+			String from0to31 = Integer.toString(rnd.nextInt(32));
+			contact.birthDay = from0to31 == "0" ? "-" : from0to31;
 			contact.birthMonth = generateRandomMonth(true, "-");
 			contact.birthYear = Integer.toString(1900 + rnd.nextInt(115));
 			
