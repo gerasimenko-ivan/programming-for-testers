@@ -1,14 +1,10 @@
 package com.example.tests;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
 import static org.testng.Assert.assertEquals;
 
-import org.testng.annotations.DataProvider;
+import java.util.Collections;
+import java.util.List;
+
 import org.testng.annotations.Test;
 
 public class GroupCreationTests extends TestBase {
