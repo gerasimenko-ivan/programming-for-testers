@@ -17,13 +17,13 @@ public class GroupRemovalTests extends TestBase {
 		
 		Random rnd = new Random();
 		
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 50; i++) {
 			// save initial groups
 			List<GroupData> initialGroups = app.getGroupHelper().getGroups();
 
 			if (i == 0 && initialGroups.size() > 15) {
-				// test several groups (7) deletion at once
-				List<Integer> indexes = generateRandomIntegersList(7, initialGroups.size());
+				// test several groups deletion at once
+				List<Integer> indexes = generateRandomIntegersList(5 + rnd.nextInt(5), initialGroups.size());
 				for (int j = indexes.size() - 1; j >= 0; j--) {
 					app.getGroupHelper().selectGroup(indexes.get(j));
 					initialGroups.remove(indexes.get(j).intValue());
@@ -32,6 +32,8 @@ public class GroupRemovalTests extends TestBase {
 				app.getGroupHelper().returnToGroupsPage();
 			} else {
 				// delete one group
+				if (initialGroups.size() < 20) break;
+				
 				int index = rnd.nextInt(initialGroups.size() - 1);
 
 				// actions
