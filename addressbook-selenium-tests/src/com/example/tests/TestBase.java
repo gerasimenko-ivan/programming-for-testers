@@ -2,6 +2,7 @@ package com.example.tests;
 
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -32,7 +33,7 @@ public class TestBase {
 	@DataProvider
 	public Iterator<Object[]> randomValidGroupGenerator() {
 		List<Object[]> list = new ArrayList<Object[]>();
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 15; i++) {
 			GroupData group = new GroupData();
 			group.name = generateRandomString();
 			group.header = generateRandomString();
@@ -155,5 +156,23 @@ public class TestBase {
 		} else {
 			return month; 
 		}
+	}
+
+	protected List<Integer> generateRandomIntegersList(int numberOfElements, int boundaryValue) {
+		List<Integer> list = new ArrayList<Integer>();
+		List<Integer> listAll = new ArrayList<Integer>();
+		Random rnd = new Random();
+		
+		for (int i = 0; i < boundaryValue; i++) {
+			listAll.add(i);
+		}
+		for (int i = 0; i < numberOfElements; i++) {
+			int index = rnd.nextInt(listAll.size());
+			list.add(listAll.get(index));
+			listAll.remove(index);
+		}
+		Collections.sort(list);
+		
+		return list;
 	}
 }
