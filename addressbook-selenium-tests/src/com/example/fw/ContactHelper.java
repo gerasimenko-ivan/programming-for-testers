@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 
 import com.example.tests.ContactData;
 
+import static org.testng.Assert.assertEquals;
+
 public class ContactHelper extends HelperBase {
 
 	public ContactHelper(ApplicationManager manager) {
@@ -68,9 +70,14 @@ public class ContactHelper extends HelperBase {
 			contact.id = Integer.parseInt(tableRow.findElement(By.xpath("td/input")).getAttribute("value"));
 			contact.lastName = tableRow.findElement(By.xpath("td[2]")).getText();
 			contact.firstName = tableRow.findElement(By.xpath("td[3]")).getText();
+			// emails from attribute
 			String[] emails = tableRow.findElement(By.xpath("td/input")).getAttribute("accept").split(";");
 			contact.email_1 = (emails.length > 0 && emails[0].length() > 0) ? emails[0] : "";
 			contact.email_2 = emails.length > 1 ? emails[1] : "";
+			// display email
+			String displayEmail = tableRow.findElement(By.xpath("td[4]")).getText();
+			// check displayEmail is the same with email_1
+			assertEquals(displayEmail, contact.email_1);
 			contact.homePhone = tableRow.findElement(By.xpath("td[5]")).getText();
 			contacts.add(contact);
 		}
