@@ -22,10 +22,11 @@ public class GroupModificationTests extends TestBase {
 	    int index = rnd.nextInt(initialGroups.size() - 1);
 	    
 	    // actions
-	    app.getGroupHelper().initGroupModification(index);
-		app.getGroupHelper().fillGroupForm(group);
-	    app.getGroupHelper().submitGroupModification();
-	    app.getGroupHelper().returnToGroupsPage();
+	    app.getGroupHelper()
+	    	.initGroupModification(index)
+	    	.fillGroupForm(group)
+	    	.submitGroupModification()
+	    	.returnToGroupsPage();
 	    
 	    // save new groups
 	    List<GroupData> newGroups = app.getGroupHelper().getGroups();
