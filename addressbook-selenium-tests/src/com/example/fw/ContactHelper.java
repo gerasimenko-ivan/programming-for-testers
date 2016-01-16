@@ -79,15 +79,6 @@ public class ContactHelper extends HelperBase {
 					.withEmail_1((emails.length > 0 && emails[0].length() > 0) ? emails[0] : "")
 					.withEmail_2(emails.length > 1 ? emails[1] : "")
 					.withHomePhone(tableRow.findElement(By.xpath("td[5]")).getText());
-			/*contact.id = Integer.parseInt(tableRow.findElement(By.xpath("td/input")).getAttribute("value"));
-			contact.lastName = tableRow.findElement(By.xpath("td[2]")).getText();
-			contact.firstName = tableRow.findElement(By.xpath("td[3]")).getText();
-			
-			contact.email_1 = (emails.length > 0 && emails[0].length() > 0) ? emails[0] : "";
-			contact.email_2 = emails.length > 1 ? emails[1] : "";
-			
-			
-			contact.homePhone = tableRow.findElement(By.xpath("td[5]")).getText();*/
 			
 			// check displayEmail is the same with email_1
 			assertEquals(displayEmail, contact.getEmail_1());
