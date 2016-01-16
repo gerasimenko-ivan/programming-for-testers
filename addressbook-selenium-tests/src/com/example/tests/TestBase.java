@@ -51,8 +51,28 @@ public class TestBase {
 		List<Object[]> list = new ArrayList<Object[]>();
 		Random rnd = new Random();
 		for (int i = 0; i < 5; i++) {
-			ContactData contact = new ContactData();
-			contact.firstName = generateRandomString();
+			// prepare data
+			String from0to31 = Integer.toString(rnd.nextInt(32));
+			// group selection
+			ArrayList<String> groupSelectOptions = app.getContactHelper().getGroupSelectOptions();
+			int groupIndex = rnd.nextInt(groupSelectOptions.size() - 1);
+			
+			ContactData contact = new ContactData()
+					.withFirstName(generateRandomString())
+					.withLastName(generateRandomString())
+					.withAddress(generateRandomString() + "\n" + generateRandomString())
+					.withHomePhone(generateValidPhoneNumber())
+					.withMobilePhone(generateValidPhoneNumber())
+					.withWorkPhone(generateValidPhoneNumber())
+					.withEmail_1(generateValidEmail(33))
+					.withEmail_2(generateValidEmail(66))
+					.withBirthDay(from0to31.equals("0") ? "-" : from0to31)
+					.withBirthMonth(generateRandomMonth(true, "-"))
+					.withBirthYear(Integer.toString(1900 + rnd.nextInt(115)))
+					.withGroup(groupSelectOptions.get(groupIndex))
+					.withAddressSecondary(generateRandomString() + "\n" + generateRandomString())
+					.withPhoneSecondary(generateValidPhoneNumber());
+			/*contact.firstName = generateRandomString();
 			contact.lastName = generateRandomString();
 			contact.address = generateRandomString() + "\n" + generateRandomString();
 			contact.homePhone = generateValidPhoneNumber();
@@ -60,18 +80,16 @@ public class TestBase {
 			contact.workPhone = generateValidPhoneNumber();
 			contact.email_1 = generateValidEmail(33);
 			contact.email_2 = generateValidEmail(66);
-			String from0to31 = Integer.toString(rnd.nextInt(32));
+			
 			contact.birthDay = from0to31.equals("0") ? "-" : from0to31;
 			contact.birthMonth = generateRandomMonth(true, "-");
 			contact.birthYear = Integer.toString(1900 + rnd.nextInt(115));
 			
-			// group selection
-			ArrayList<String> groupSelectOptions = app.getContactHelper().getGroupSelectOptions();
-			int groupIndex = rnd.nextInt(groupSelectOptions.size() - 1);
+			
 			contact.contactGroup = groupSelectOptions.get(groupIndex);
 			
 			contact.addressSecondary = generateRandomString() + "\n" + generateRandomString();
-			contact.phoneSecondary = generateValidPhoneNumber();
+			contact.phoneSecondary = generateValidPhoneNumber();*/
 			
 			list.add(new Object[]{contact});
 		}
