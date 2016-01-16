@@ -22,26 +22,26 @@ public class ContactHelper extends HelperBase {
 
 	public void fillContactForm(ContactData contact) {
 		// name
-		type(By.name("firstname"), contact.firstName);
-		type(By.name("lastname"), contact.lastName);
+		type(By.name("firstname"), contact.getFirstName());
+		type(By.name("lastname"), contact.getLastName());
 		// address
-		type(By.name("address"), contact.address);
+		type(By.name("address"), contact.getAddress());
 		// contacts
-		type(By.name("home"), contact.homePhone);
-	    type(By.name("mobile"), contact.mobilePhone);
-	    type(By.name("work"), contact.workPhone);
-	    type(By.name("email"), contact.email_1);
-	    type(By.name("email2"), contact.email_2);
+		type(By.name("home"), contact.getHomePhone());
+	    type(By.name("mobile"), contact.getMobilePhone());
+	    type(By.name("work"), contact.getWorkPhone());
+	    type(By.name("email"), contact.getEmail_1());
+	    type(By.name("email2"), contact.getEmail_2());
 	    // birth date
-		select(By.name("bday"), contact.birthDay);
-	    select(By.name("bmonth"), contact.birthMonth);
-	    type(By.name("byear"), contact.birthYear);
+		select(By.name("bday"), contact.getBirthDay());
+	    select(By.name("bmonth"), contact.getBirthMonth());
+	    type(By.name("byear"), contact.getBirthYear());
 	    // group
-	    select(By.name("new_group"), contact.contactGroup);
+	    select(By.name("new_group"), contact.getContactGroup());
 	    // extra address
-	    type(By.name("address2"), contact.addressSecondary);
+	    type(By.name("address2"), contact.getAddressSecondary());
 	    // extra contact
-	    type(By.name("phone2"), contact.phoneSecondary);
+	    type(By.name("phone2"), contact.getPhoneSecondary());
 	}
 
 	public void returnToHomePage() {
@@ -66,19 +66,31 @@ public class ContactHelper extends HelperBase {
 		List<ContactData> contacts = new ArrayList<ContactData>();
 		List<WebElement> tableRows = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr[@name='entry']"));
 		for (WebElement tableRow : tableRows) {
-			ContactData contact = new ContactData();
-			contact.id = Integer.parseInt(tableRow.findElement(By.xpath("td/input")).getAttribute("value"));
-			contact.lastName = tableRow.findElement(By.xpath("td[2]")).getText();
-			contact.firstName = tableRow.findElement(By.xpath("td[3]")).getText();
+			// prepare data
 			// emails from attribute
 			String[] emails = tableRow.findElement(By.xpath("td/input")).getAttribute("accept").split(";");
-			contact.email_1 = (emails.length > 0 && emails[0].length() > 0) ? emails[0] : "";
-			contact.email_2 = emails.length > 1 ? emails[1] : "";
 			// display email
 			String displayEmail = tableRow.findElement(By.xpath("td[4]")).getText();
+			
+			ContactData contact = new ContactData()
+					.withId(Integer.parseInt(tableRow.findElement(By.xpath("td/input")).getAttribute("value")))
+					.withLastName(tableRow.findElement(By.xpath("td[2]")).getText())
+					.withFirstName(tableRow.findElement(By.xpath("td[3]")).getText())
+					.withEmail_1((emails.length > 0 && emails[0].length() > 0) ? emails[0] : "")
+					.withEmail_2(emails.length > 1 ? emails[1] : "")
+					.withHomePhone(tableRow.findElement(By.xpath("td[5]")).getText());
+			/*contact.id = Integer.parseInt(tableRow.findElement(By.xpath("td/input")).getAttribute("value"));
+			contact.lastName = tableRow.findElement(By.xpath("td[2]")).getText();
+			contact.firstName = tableRow.findElement(By.xpath("td[3]")).getText();
+			
+			contact.email_1 = (emails.length > 0 && emails[0].length() > 0) ? emails[0] : "";
+			contact.email_2 = emails.length > 1 ? emails[1] : "";
+			
+			
+			contact.homePhone = tableRow.findElement(By.xpath("td[5]")).getText();*/
+			
 			// check displayEmail is the same with email_1
-			assertEquals(displayEmail, contact.email_1);
-			contact.homePhone = tableRow.findElement(By.xpath("td[5]")).getText();
+			assertEquals(displayEmail, contact.getEmail_1());
 			contacts.add(contact);
 		}
 		return contacts;

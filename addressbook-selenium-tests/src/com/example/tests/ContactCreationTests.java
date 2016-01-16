@@ -26,9 +26,10 @@ public class ContactCreationTests extends TestBase {
 		List<ContactData> newContacts = app.getContactHelper().getContacts();
 
 		// move single email_2 to first position
-		if (contact.email_1 == "") {
-			contact.email_1 = contact.email_2;
-			contact.email_2 = "";
+		if (contact.getEmail_1() == "") {
+			contact
+				.withEmail_1(contact.getEmail_2())
+				.withEmail_2("");
 		}
 		
 		// compare states

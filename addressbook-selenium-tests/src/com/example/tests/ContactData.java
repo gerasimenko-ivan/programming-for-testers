@@ -1,21 +1,21 @@
 package com.example.tests;
 
 public class ContactData implements Comparable<ContactData> {
-	public int id;
-	public String firstName;
-	public String lastName;
-	public String address;
-	public String homePhone;
-	public String mobilePhone;
-	public String workPhone;
-	public String email_1;
-	public String email_2;
-	public String birthDay;
-	public String birthMonth;
-	public String birthYear;
-	public String contactGroup;
-	public String addressSecondary;
-	public String phoneSecondary;
+	private int id;
+	private String firstName;
+	private String lastName;
+	private String address;
+	private String homePhone;
+	private String mobilePhone;
+	private String workPhone;
+	private String email_1;
+	private String email_2;
+	private String birthDay;
+	private String birthMonth;
+	private String birthYear;
+	private String contactGroup;
+	private String addressSecondary;
+	private String phoneSecondary;
 
 	public ContactData() {
 		this.id = Integer.MAX_VALUE;
@@ -162,6 +162,11 @@ public class ContactData implements Comparable<ContactData> {
 		}
 	}
 
+	public ContactData withId(int id) {
+		this.id = id;
+		return this;
+	}	
+	
 	public ContactData withFirstName(String firstName) {
 		this.firstName = firstName;
 		return this;
@@ -230,5 +235,66 @@ public class ContactData implements Comparable<ContactData> {
 	public ContactData withPhoneSecondary(String phoneSecondary) {
 		this.phoneSecondary = phoneSecondary; 
 		return this;
-	}	
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public String getHomePhone() {
+		return homePhone;
+	}
+
+	public String getMobilePhone() {
+		return mobilePhone;
+	}
+
+	public String getWorkPhone() {
+		return workPhone;
+	}
+
+	public String getEmail_1() {
+		return email_1;
+	}
+
+	public String getEmail_2() {
+		return email_2;
+	}
+
+	public String getBirthDay() {
+		return birthDay;
+	}
+
+	public String getBirthMonth() {
+		return birthMonth;
+	}
+
+	public String getBirthYear() {
+		return birthYear;
+	}
+
+	public String getContactGroup() {
+		return contactGroup;
+	}
+
+	public String getAddressSecondary() {
+		return addressSecondary;
+	}
+
+	public String getPhoneSecondary() {
+		return phoneSecondary;
+	}
+
 }
