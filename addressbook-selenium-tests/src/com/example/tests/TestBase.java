@@ -73,6 +73,13 @@ public class TestBase {
 					.withAddressSecondary(generateRandomString() + "\n" + generateRandomString())
 					.withPhoneSecondary(generateValidPhoneNumber());
 			
+			// move single email_2 to first position
+			if (contact.getEmail_1() == "") {
+				contact
+					.withEmail_1(contact.getEmail_2())
+					.withEmail_2("");
+			}
+			
 			list.add(new Object[]{contact});
 		}
 		return list.iterator();

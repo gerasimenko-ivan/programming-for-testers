@@ -73,7 +73,6 @@ public class ContactData implements Comparable<ContactData> {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email_1 == null) ? 0 : email_1.hashCode());
-		result = prime * result + ((email_2 == null) ? 0 : email_2.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((homePhone == null) ? 0 : homePhone.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
@@ -93,11 +92,6 @@ public class ContactData implements Comparable<ContactData> {
 			if (other.email_1 != null)
 				return false;
 		} else if (!email_1.equals(other.email_1))
-			return false;
-		if (email_2 == null) {
-			if (other.email_2 != null)
-				return false;
-		} else if (!email_2.equals(other.email_2))
 			return false;
 		if (firstName == null) {
 			if (other.firstName != null)

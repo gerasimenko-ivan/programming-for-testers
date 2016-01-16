@@ -30,13 +30,6 @@ public class ContactModificationTests extends TestBase {
 		// save new contact list
 		List<ContactData> newContacts = app.getContactHelper().getContacts();
 
-		// move single email_2 to first position
-		if (contact.getEmail_1() == "") {
-			contact
-				.withEmail_1(contact.getEmail_2())
-				.withEmail_2("");
-		}
-
 		// compare states
 		ContactData oldContact = initialContacts.get(index);
 		initialContacts.remove(index);
