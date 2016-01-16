@@ -38,9 +38,6 @@ public class TestBase {
 					.withName(generateRandomString())
 					.withHeader(generateRandomString())
 					.withFooter(generateRandomString());
-			/*group.name = generateRandomString();
-			group.header = generateRandomString();
-			group.footer = generateRandomString();*/
 			list.add(new Object[] { group });
 		}
 		return list.iterator();
