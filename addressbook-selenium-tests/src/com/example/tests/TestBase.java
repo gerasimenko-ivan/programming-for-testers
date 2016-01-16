@@ -72,24 +72,6 @@ public class TestBase {
 					.withGroup(groupSelectOptions.get(groupIndex))
 					.withAddressSecondary(generateRandomString() + "\n" + generateRandomString())
 					.withPhoneSecondary(generateValidPhoneNumber());
-			/*contact.firstName = generateRandomString();
-			contact.lastName = generateRandomString();
-			contact.address = generateRandomString() + "\n" + generateRandomString();
-			contact.homePhone = generateValidPhoneNumber();
-			contact.mobilePhone = generateValidPhoneNumber();
-			contact.workPhone = generateValidPhoneNumber();
-			contact.email_1 = generateValidEmail(33);
-			contact.email_2 = generateValidEmail(66);
-			
-			contact.birthDay = from0to31.equals("0") ? "-" : from0to31;
-			contact.birthMonth = generateRandomMonth(true, "-");
-			contact.birthYear = Integer.toString(1900 + rnd.nextInt(115));
-			
-			
-			contact.contactGroup = groupSelectOptions.get(groupIndex);
-			
-			contact.addressSecondary = generateRandomString() + "\n" + generateRandomString();
-			contact.phoneSecondary = generateValidPhoneNumber();*/
 			
 			list.add(new Object[]{contact});
 		}
