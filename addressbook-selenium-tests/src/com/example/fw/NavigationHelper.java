@@ -8,20 +8,24 @@ public class NavigationHelper extends HelperBase {
 		super(manager);
 	}
 
-	public void gotoGroupsPage() {
+	public NavigationHelper gotoGroupsPage() {
 		click(By.linkText("groups"));
+		return this;
 	}
 
-	public void gotoAddNewContact() {
+	public NavigationHelper gotoAddNewContact() {
 		click(By.linkText("add new"));
+		return this;
 	}
 
-	public void gotoHomePage() {
+	public NavigationHelper gotoHomePage() {
 		click(By.linkText("home"));
+		return this;
 	}
 
-	public void openMainPage() {
+	public NavigationHelper openMainPage() {
 		driver.get(manager.baseUrl + "/addressbookv4.1.4/");
+		return this;
 	}
 
 }

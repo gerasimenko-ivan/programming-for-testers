@@ -11,8 +11,9 @@ public class GroupCreationTests extends TestBase {
 
 	@Test(dataProvider = "randomValidGroupGenerator")
 	public void testValidGroupCreation(GroupData group) throws Exception {
-		app.getNavigationHelper().openMainPage();
-		app.getNavigationHelper().gotoGroupsPage();
+		app.getNavigationHelper()
+			.openMainPage()
+			.gotoGroupsPage();
 
 		// save old state
 		List<GroupData> initialGroups = app.getGroupHelper().getGroups();
