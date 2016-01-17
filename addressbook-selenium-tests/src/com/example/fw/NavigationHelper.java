@@ -16,8 +16,9 @@ public class NavigationHelper extends HelperBase {
 	}
 
 	private boolean isOnGroupsPage() {
-		return (driver.getCurrentUrl().contains("/group.php")
-				&& driver.findElements(By.name("new_group")).size() > 0);
+		/*return (driver.getCurrentUrl().contains("/group.php")
+				&& driver.findElements(By.name("new_group")).size() > 0);*/
+		return false;
 	}
 
 	public NavigationHelper gotoAddNewContact() {
@@ -37,7 +38,8 @@ public class NavigationHelper extends HelperBase {
 	}
 
 	private boolean isOnMainPage() {
-		return driver.findElements(By.id("maintable")).size() > 0;
+		/*return driver.findElements(By.id("maintable")).size() > 0;*/
+		return false;
 	}
 
 }
