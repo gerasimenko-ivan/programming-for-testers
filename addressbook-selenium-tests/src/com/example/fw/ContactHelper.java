@@ -26,6 +26,7 @@ public class ContactHelper extends HelperBase {
 	}
 	
 	public ContactHelper modifyContact(int index, ContactData contact) {
+		manager.navigateTo().mainPage();
 		initContactEdit(index);
 		fillContactForm(contact, MODIFICATION);
 		submitUpdate();
@@ -34,6 +35,7 @@ public class ContactHelper extends HelperBase {
 	}
 
 	public ContactHelper removeContact(int index) {
+		manager.navigateTo().mainPage();
 		initContactEdit(index);
 		submitDeleteContact();
 		returnToHomePage();
