@@ -1,14 +1,12 @@
 package com.example.tests;
 
+import static com.example.fw.ContactHelper.CREATION;
 import static org.testng.Assert.assertEquals;
 
 import java.util.Collections;
 import java.util.List;
 
 import org.testng.annotations.Test;
-
-import com.example.fw.ContactHelper;
-import static com.example.fw.ContactHelper.CREATION;
 
 public class ContactCreationTests extends TestBase {
 
