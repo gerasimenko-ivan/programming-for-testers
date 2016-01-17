@@ -8,7 +8,7 @@ public class NavigationHelper extends HelperBase {
 		super(manager);
 	}
 
-	public NavigationHelper gotoGroupsPage() {
+	public NavigationHelper groupsPage() {
 		click(By.linkText("groups"));
 		return this;
 	}
@@ -23,7 +23,7 @@ public class NavigationHelper extends HelperBase {
 		return this;
 	}
 
-	public NavigationHelper openMainPage() {
+	public NavigationHelper mainPage() {
 		driver.get(manager.baseUrl + "/addressbookv4.1.4/");
 		return this;
 	}

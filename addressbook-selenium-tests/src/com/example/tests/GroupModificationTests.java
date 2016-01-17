@@ -12,9 +12,9 @@ public class GroupModificationTests extends TestBase {
 	
 	@Test(dataProvider = "randomValidGroupGenerator")
 	public void renameGroup(GroupData group) {
-		app.getNavigationHelper()
-			.openMainPage()
-			.gotoGroupsPage();
+		app.navigateTo()
+			.mainPage()
+			.groupsPage();
 	    
 	    // save initial groups
 	    List<GroupData> initialGroups = app.getGroupHelper().getGroups();

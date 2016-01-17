@@ -13,7 +13,7 @@ public class ContactModificationTests extends TestBase {
 
 	@Test(dataProvider = "randomValidContactGenerator")
 	public void modifyContact(ContactData contact) {
-		app.getNavigationHelper().openMainPage();
+		app.navigateTo().mainPage();
 
 		// save initial contacts list
 		List<ContactData> initialContacts = app.getContactHelper().getContacts();

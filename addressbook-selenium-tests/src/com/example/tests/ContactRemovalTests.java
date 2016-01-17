@@ -11,7 +11,7 @@ public class ContactRemovalTests extends TestBase {
 
 	@Test
 	public void removeContact() {
-		app.getNavigationHelper().openMainPage();
+		app.navigateTo().mainPage();
 
 		// save initial contacts list
 		List<ContactData> initialContacts = app.getContactHelper().getContacts();

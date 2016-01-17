@@ -12,9 +12,9 @@ public class GroupRemovalTests extends TestBase {
 
 	@Test
 	public void removeGroup() {
-		app.getNavigationHelper()
-			.openMainPage()
-			.gotoGroupsPage();
+		app.navigateTo()
+			.mainPage()
+			.groupsPage();
 
 		Random rnd = new Random();
 
@@ -44,9 +44,9 @@ public class GroupRemovalTests extends TestBase {
 
 	@Test
 	public void removeSeveralGroups() {
-		app.getNavigationHelper()
-			.openMainPage()
-			.gotoGroupsPage();
+		app.navigateTo()
+			.mainPage()
+			.groupsPage();
 
 		Random rnd = new Random();
 

@@ -30,7 +30,7 @@ public class ApplicationManager {
 	}
 	
 	// lazy initialization
-	public NavigationHelper getNavigationHelper() {
+	public NavigationHelper navigateTo() {
 		if (navigationHelper == null) {
 			navigationHelper = new NavigationHelper(this);
 		}
