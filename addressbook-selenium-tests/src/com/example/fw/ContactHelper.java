@@ -14,11 +14,12 @@ public class ContactHelper extends HelperBase {
 		super(manager);
 	}
 
-	public void submitContactForm() {
+	public ContactHelper submitContactForm() {
 		click(By.name("submit"));
+		return this;
 	}
 
-	public void fillContactForm(ContactData contact) {
+	public ContactHelper fillContactForm(ContactData contact) {
 		// name
 		type(By.name("firstname"), contact.getFirstName());
 		type(By.name("lastname"), contact.getLastName());
@@ -40,24 +41,29 @@ public class ContactHelper extends HelperBase {
 	    type(By.name("address2"), contact.getAddressSecondary());
 	    // extra contact
 	    type(By.name("phone2"), contact.getPhoneSecondary());
+	    return this;
 	}
 
-	public void returnToHomePage() {
+	public ContactHelper returnToHomePage() {
 		click(By.linkText("home page"));
+		return this;
 	}
 
-	public void initContactEdit(int index) {
+	public ContactHelper initContactEdit(int index) {
 		// (index + 2) - numiration from 1 and 1 is for table header
 		String locator = "//table[@id='maintable']//tr[" + (index + 2) + "]/td/a/img[@title='Edit']";
 		click(By.xpath(locator));
+		return this;
 	}
 
-	public void submitDeleteContact() {
+	public ContactHelper submitDeleteContact() {
 		click(By.xpath("//input[@value='Delete']"));
+		return this;
 	}
 
-	public void submitUpdate() {
+	public ContactHelper submitUpdate() {
 		click(By.xpath("//input[@value='Update']"));
+		return this;
 	}
 
 	public List<ContactData> getContacts() {
