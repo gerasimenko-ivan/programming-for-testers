@@ -16,6 +16,31 @@ public class ContactHelper extends HelperBase {
 	public ContactHelper(ApplicationManager manager) {
 		super(manager);
 	}
+	
+	public ContactHelper createContact(ContactData contact) {
+		manager.navigateTo().addNewContact();
+		fillContactForm(contact, CREATION);
+		submitContactForm();
+		manager.navigateTo().homePage();
+		return this;
+	}
+	
+	public ContactHelper modifyContact(int index, ContactData contact) {
+		initContactEdit(index);
+		fillContactForm(contact, MODIFICATION);
+		submitUpdate();
+		returnToHomePage();
+		return this;
+	}
+
+	public ContactHelper removeContact(int index) {
+		initContactEdit(index);
+		submitDeleteContact();
+		returnToHomePage();
+		return this;
+	}
+	
+	// --------------------------------------------------------------------------
 
 	public ContactHelper submitContactForm() {
 		click(By.name("submit"));

@@ -1,6 +1,5 @@
 package com.example.tests;
 
-import static com.example.fw.ContactHelper.CREATION;
 import static org.testng.Assert.assertEquals;
 
 import java.util.Collections;
@@ -16,13 +15,7 @@ public class ContactCreationTests extends TestBase {
 		List<ContactData> initialContacts = app.getContactHelper().getContacts();
 
 		// actions
-		app.navigateTo()
-			.gotoAddNewContact();
-		app.getContactHelper()
-			.fillContactForm(contact, CREATION)
-			.submitContactForm();
-		app.navigateTo()
-			.gotoHomePage();
+		app.getContactHelper().createContact(contact);
 
 		// save new contact list
 		List<ContactData> newContacts = app.getContactHelper().getContacts();

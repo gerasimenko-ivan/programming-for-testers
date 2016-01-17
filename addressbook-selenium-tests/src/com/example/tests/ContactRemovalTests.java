@@ -11,8 +11,6 @@ public class ContactRemovalTests extends TestBase {
 
 	@Test
 	public void removeContact() {
-		app.navigateTo().mainPage();
-
 		// save initial contacts list
 		List<ContactData> initialContacts = app.getContactHelper().getContacts();
 
@@ -20,11 +18,7 @@ public class ContactRemovalTests extends TestBase {
 			Random rnd = new Random();
 			int index = rnd.nextInt(initialContacts.size() - 1);
 
-			// actions
-			app.getContactHelper()
-				.initContactEdit(index)
-				.submitDeleteContact()
-				.returnToHomePage();
+			app.getContactHelper().removeContact(index);
 			initialContacts.remove(index);
 
 			// save new contact list

@@ -21,12 +21,12 @@ public class NavigationHelper extends HelperBase {
 		return false;
 	}
 
-	public NavigationHelper gotoAddNewContact() {
+	public NavigationHelper addNewContact() {
 		click(By.linkText("add new"));
 		return this;
 	}
 
-	public NavigationHelper gotoHomePage() {
+	public NavigationHelper homePage() {
 		click(By.linkText("home"));
 		return this;
 	}

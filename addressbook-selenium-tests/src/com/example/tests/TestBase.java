@@ -46,7 +46,7 @@ public class TestBase {
 	@DataProvider
 	public Iterator<Object[]> randomValidContactGenerator() {
 		app.navigateTo().mainPage();
-		app.navigateTo().gotoAddNewContact();
+		app.navigateTo().addNewContact();
 		
 		List<Object[]> list = new ArrayList<Object[]>();
 		Random rnd = new Random();
