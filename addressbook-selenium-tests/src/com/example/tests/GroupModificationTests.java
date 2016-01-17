@@ -11,11 +11,7 @@ import org.testng.annotations.Test;
 public class GroupModificationTests extends TestBase {
 	
 	@Test(dataProvider = "randomValidGroupGenerator")
-	public void renameGroup(GroupData group) {
-		app.navigateTo()
-			.mainPage()
-			.groupsPage();
-	    
+	public void renameGroup(GroupData group) {	    
 	    // save initial groups
 	    List<GroupData> initialGroups = app.getGroupHelper().getGroups();
 	    
@@ -23,11 +19,7 @@ public class GroupModificationTests extends TestBase {
 	    int index = rnd.nextInt(initialGroups.size() - 1);
 	    
 	    // actions
-	    app.getGroupHelper()
-	    	.initGroupModification(index)
-	    	.fillGroupForm(group)
-	    	.submitGroupModification()
-	    	.returnToGroupsPage();
+	    app.getGroupHelper().modifyGroup(index, group);
 	    
 	    // save new groups
 	    List<GroupData> newGroups = app.getGroupHelper().getGroups();

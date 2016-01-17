@@ -12,9 +12,6 @@ public class GroupRemovalTests extends TestBase {
 
 	@Test
 	public void removeGroup() {
-		app.navigateTo()
-			.mainPage()
-			.groupsPage();
 
 		Random rnd = new Random();
 
@@ -28,8 +25,7 @@ public class GroupRemovalTests extends TestBase {
 
 			int index = rnd.nextInt(initialGroups.size() - 1);
 
-			// actions
-			app.getGroupHelper().selectGroup(index).submitDeleteGroups().returnToGroupsPage();
+			app.getGroupHelper().deleteGroup(index);
 			initialGroups.remove(index);
 
 			// save new groups
@@ -44,9 +40,6 @@ public class GroupRemovalTests extends TestBase {
 
 	@Test
 	public void removeSeveralGroups() {
-		app.navigateTo()
-			.mainPage()
-			.groupsPage();
 
 		Random rnd = new Random();
 
@@ -55,12 +48,10 @@ public class GroupRemovalTests extends TestBase {
 
 		if (initialGroups.size() > 15) {
 			// test several groups deletion at once
-			List<Integer> indexes = generateRandomIntegersList(5 + rnd.nextInt(5), initialGroups.size());
-			for (int j = indexes.size() - 1; j >= 0; j--) {
-				app.getGroupHelper().selectGroup(indexes.get(j));
-				initialGroups.remove(indexes.get(j).intValue());
-			}
-			app.getGroupHelper().submitDeleteGroups().returnToGroupsPage();
+			List<Integer> indexes = 
+					generateRandomIntegersList(5 + rnd.nextInt(5), initialGroups.size());
+			app.getGroupHelper().deleteGroups(indexes);
+			app.getGroupHelper().removeGroups(indexes, initialGroups);
 		}
 
 		// save new groups

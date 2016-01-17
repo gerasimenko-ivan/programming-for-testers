@@ -13,6 +13,56 @@ public class GroupHelper extends HelperBase {
 	public GroupHelper(ApplicationManager manager) {
 		super(manager);
 	}
+	
+	public List<GroupData> getGroups() {
+		List<GroupData> groups = new ArrayList<GroupData>();
+		
+		manager.navigateTo().groupsPage();
+		List<WebElement> checkboxes = driver.findElements(By.name("selected[]"));
+		for (WebElement checkbox : checkboxes) {
+			String title = checkbox.getAttribute("title");
+			String name = title.substring("Select (".length(), title.length()-")".length());
+			groups.add(new GroupData().withName(name));
+		}
+		return groups;
+	}
+	
+	public GroupHelper createGroup(GroupData group) {
+		manager.navigateTo().groupsPage();
+		initGroupCreation();
+		fillGroupForm(group);
+		submitGroupForm();
+		returnToGroupsPage();
+		return this;
+	}
+	
+	public GroupHelper modifyGroup(int index, GroupData group) {
+		manager.navigateTo().groupsPage();
+		initGroupModification(index);
+    	fillGroupForm(group);
+    	submitGroupModification();
+    	returnToGroupsPage();
+    	return this;
+	}
+	
+	public GroupHelper deleteGroup(int index) {
+		manager.navigateTo().groupsPage();
+		selectGroup(index);
+		submitDeleteGroups();
+		returnToGroupsPage();
+		return this;
+	}
+	
+	public GroupHelper deleteGroups(List<Integer> indexes) {
+		for (int j = indexes.size() - 1; j >= 0; j--) {
+			selectGroup(indexes.get(j));
+		}
+		submitDeleteGroups();
+		returnToGroupsPage();
+		return this;
+	}
+	
+	// --------------------------------------------------------------------
 
 	public GroupHelper submitGroupForm() {
 		click(By.name("submit"));
@@ -57,14 +107,10 @@ public class GroupHelper extends HelperBase {
 		return this;
 	}
 
-	public List<GroupData> getGroups() {
-		List<GroupData> groups = new ArrayList<GroupData>();
-		List<WebElement> checkboxes = driver.findElements(By.name("selected[]"));
-		for (WebElement checkbox : checkboxes) {
-			String title = checkbox.getAttribute("title");
-			String name = title.substring("Select (".length(), title.length()-")".length());
-			groups.add(new GroupData().withName(name));
+	public void removeGroups(List<Integer> indexes, List<GroupData> initialGroups) {
+		for (int j = indexes.size() - 1; j >= 0; j--) {
+			initialGroups.remove(indexes.get(j).intValue());
 		}
-		return groups;
 	}
+
 }

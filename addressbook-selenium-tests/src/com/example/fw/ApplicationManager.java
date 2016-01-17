@@ -18,11 +18,7 @@ public class ApplicationManager {
 		driver = new FirefoxDriver();
 	    baseUrl = "http://localhost/";
 	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	    
-	    // предварительная инициализация
-	    //navigationHelper = new NavigationHelper(this);
-	    //groupHelper = new GroupHelper(this);
-	    //contactHelper = new ContactHelper(this);
+	    driver.get(baseUrl + "/addressbookv4.1.4/");
 	}
 
 	public void stop() {

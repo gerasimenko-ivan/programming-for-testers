@@ -9,8 +9,15 @@ public class NavigationHelper extends HelperBase {
 	}
 
 	public NavigationHelper groupsPage() {
-		click(By.linkText("groups"));
+		if (! isOnGroupsPage()) {
+			click(By.linkText("groups"));
+		}
 		return this;
+	}
+
+	private boolean isOnGroupsPage() {
+		return (driver.getCurrentUrl().contains("/group.php")
+				&& driver.findElements(By.name("new_group")).size() > 0);
 	}
 
 	public NavigationHelper gotoAddNewContact() {
@@ -24,8 +31,13 @@ public class NavigationHelper extends HelperBase {
 	}
 
 	public NavigationHelper mainPage() {
-		driver.get(manager.baseUrl + "/addressbookv4.1.4/");
+		if (! isOnMainPage())
+			click(By.linkText("home"));
 		return this;
+	}
+
+	private boolean isOnMainPage() {
+		return driver.findElements(By.id("maintable")).size() > 0;
 	}
 
 }
