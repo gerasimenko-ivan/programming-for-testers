@@ -54,6 +54,7 @@ public class GroupHelper extends HelperBase {
 	}
 	
 	public GroupHelper deleteGroups(List<Integer> indexes) {
+		manager.navigateTo().groupsPage();
 		for (int j = indexes.size() - 1; j >= 0; j--) {
 			selectGroup(indexes.get(j));
 		}

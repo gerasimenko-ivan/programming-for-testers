@@ -78,6 +78,8 @@ public class ContactHelper extends HelperBase {
 
 	public List<ContactData> getContacts() {
 		List<ContactData> contacts = new ArrayList<ContactData>();
+		
+		manager.navigateTo().mainPage();
 		List<WebElement> tableRows = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr[@name='entry']"));
 		for (WebElement tableRow : tableRows) {
 			// prepare data
