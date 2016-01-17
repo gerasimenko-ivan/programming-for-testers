@@ -21,11 +21,12 @@ public class ContactModificationTests extends TestBase {
 		int index = rnd.nextInt(initialContacts.size() - 1);
 
 		// actions
-		app.getContactHelper().initContactEdit(index);
 		contact.withGroup(null);
-		app.getContactHelper().fillContactForm(contact);
-		app.getContactHelper().submitUpdate();
-		app.getContactHelper().returnToHomePage();
+		app.getContactHelper()
+			.initContactEdit(index)
+			.fillContactForm(contact)
+			.submitUpdate()
+			.returnToHomePage();
 
 		// save new contact list
 		List<ContactData> newContacts = app.getContactHelper().getContacts();
