@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.testng.annotations.Test;
 
+import com.example.fw.ContactHelper;
+
 public class ContactCreationTests extends TestBase {
 
 	@Test(dataProvider = "randomValidContactGenerator")
@@ -21,7 +23,7 @@ public class ContactCreationTests extends TestBase {
 		app.getNavigationHelper()
 			.gotoAddNewContact();
 		app.getContactHelper()
-			.fillContactForm(contact)
+			.fillContactForm(contact, ContactHelper.CREATION)
 			.submitContactForm();
 		app.getNavigationHelper()
 			.gotoHomePage();
