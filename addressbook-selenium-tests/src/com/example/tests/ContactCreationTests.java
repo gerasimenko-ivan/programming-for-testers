@@ -11,17 +11,20 @@ public class ContactCreationTests extends TestBase {
 
 	@Test(dataProvider = "randomValidContactGenerator")
 	public void testValidContactCreation(ContactData contact) throws Exception {
-		app.getNavigationHelper().openMainPage();
+		app.getNavigationHelper()
+			.openMainPage();
 
 		// save initial contacts list
 		List<ContactData> initialContacts = app.getContactHelper().getContacts();
 
 		// actions
-		app.getNavigationHelper().gotoAddNewContact();
+		app.getNavigationHelper()
+			.gotoAddNewContact();
 		app.getContactHelper()
 			.fillContactForm(contact)
 			.submitContactForm();
-		app.getNavigationHelper().gotoHomePage();
+		app.getNavigationHelper()
+			.gotoHomePage();
 
 		// save new contact list
 		List<ContactData> newContacts = app.getContactHelper().getContacts();
