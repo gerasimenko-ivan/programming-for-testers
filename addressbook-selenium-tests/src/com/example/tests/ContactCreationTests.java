@@ -8,6 +8,7 @@ import java.util.List;
 import org.testng.annotations.Test;
 
 import com.example.fw.ContactHelper;
+import static com.example.fw.ContactHelper.CREATION;
 
 public class ContactCreationTests extends TestBase {
 
@@ -23,7 +24,7 @@ public class ContactCreationTests extends TestBase {
 		app.getNavigationHelper()
 			.gotoAddNewContact();
 		app.getContactHelper()
-			.fillContactForm(contact, ContactHelper.CREATION)
+			.fillContactForm(contact, CREATION)
 			.submitContactForm();
 		app.getNavigationHelper()
 			.gotoHomePage();

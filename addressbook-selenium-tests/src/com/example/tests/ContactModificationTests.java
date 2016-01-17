@@ -9,6 +9,7 @@ import java.util.Random;
 import org.testng.annotations.Test;
 
 import com.example.fw.ContactHelper;
+import static com.example.fw.ContactHelper.MODIFICATION;
 
 public class ContactModificationTests extends TestBase {
 
@@ -26,7 +27,7 @@ public class ContactModificationTests extends TestBase {
 		//contact.withGroup(null);
 		app.getContactHelper()
 			.initContactEdit(index)
-			.fillContactForm(contact, ContactHelper.MODIFICATION)
+			.fillContactForm(contact, MODIFICATION)
 			.submitUpdate()
 			.returnToHomePage();
 

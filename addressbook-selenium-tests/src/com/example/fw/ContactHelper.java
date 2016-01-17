@@ -46,9 +46,9 @@ public class ContactHelper extends HelperBase {
 	    if (formType == CREATION){
 	    	select(By.name("new_group"), contact.getContactGroup());
 	    } else {
-	    	if (driver.findElements(By.name("new_group")).size() != 0) {
+	    	/*if (driver.findElements(By.name("new_group")).size() != 0) {
 	    		throw new Error("Group selector exists in contact modification form");
-	    	}
+	    	}*/
 	    }
 	    
 	    return this;
