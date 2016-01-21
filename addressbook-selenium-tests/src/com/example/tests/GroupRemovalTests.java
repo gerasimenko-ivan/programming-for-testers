@@ -8,8 +8,6 @@ import java.util.Random;
 
 import org.testng.annotations.Test;
 
-import com.example.utils.SortedListOf;
-
 public class GroupRemovalTests extends TestBase {
 
 	@Test
@@ -19,7 +17,7 @@ public class GroupRemovalTests extends TestBase {
 
 		for (int i = 0; i < 50; i++) {
 			// save initial groups
-			SortedListOf<GroupData> initialGroups = app.getGroupHelper().getGroups();
+			List<GroupData> initialGroups = app.getGroupHelper().getGroups();
 
 			// delete one group
 			if (initialGroups.size() < 20)
@@ -31,7 +29,7 @@ public class GroupRemovalTests extends TestBase {
 			initialGroups.remove(index);
 
 			// save new groups
-			SortedListOf<GroupData> newGroups = app.getGroupHelper().getGroups();
+			List<GroupData> newGroups = app.getGroupHelper().getGroups();
 
 			// compare states
 			Collections.sort(initialGroups);
@@ -46,7 +44,7 @@ public class GroupRemovalTests extends TestBase {
 		Random rnd = new Random();
 
 		// save initial groups
-		SortedListOf<GroupData> initialGroups = app.getGroupHelper().getGroups();
+		List<GroupData> initialGroups = app.getGroupHelper().getGroups();
 
 		if (initialGroups.size() > 15) {
 			// test several groups deletion at once
@@ -57,9 +55,10 @@ public class GroupRemovalTests extends TestBase {
 		}
 
 		// save new groups
-		SortedListOf<GroupData> newGroups = app.getGroupHelper().getGroups();
+		List<GroupData> newGroups = app.getGroupHelper().getGroups();
 
 		// compare states
+		Collections.sort(initialGroups);
 		assertEquals(newGroups, initialGroups);
 
 	}

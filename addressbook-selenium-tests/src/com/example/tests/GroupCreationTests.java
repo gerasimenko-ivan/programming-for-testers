@@ -2,25 +2,27 @@ package com.example.tests;
 
 import static org.testng.Assert.assertEquals;
 
-import org.testng.annotations.Test;
+import java.util.Collections;
+import java.util.List;
 
-import com.example.utils.SortedListOf;
+import org.testng.annotations.Test;
 
 public class GroupCreationTests extends TestBase {
 
 	@Test(dataProvider = "randomValidGroupGenerator")
 	public void testValidGroupCreation(GroupData group) throws Exception {
 		// save old state
-		SortedListOf<GroupData> initialGroups = app.getGroupHelper().getGroups();
+		List<GroupData> initialGroups = app.getGroupHelper().getGroups();
 
 		// actions
 		app.getGroupHelper().createGroup(group);
 
 		// get new state
-		SortedListOf<GroupData> newGroups = app.getGroupHelper().getGroups();
+		List<GroupData> newGroups = app.getGroupHelper().getGroups();
 
 		// compare states
 		initialGroups.add(group);
+		Collections.sort(initialGroups);
 		assertEquals(newGroups, initialGroups);
 	}
 }
