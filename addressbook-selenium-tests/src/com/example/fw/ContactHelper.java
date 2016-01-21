@@ -12,46 +12,16 @@ public class ContactHelper extends HelperBase {
 	
 	public static boolean CREATION = true;
 	public static boolean MODIFICATION = false;
-	
-	private List<ContactData> cachedContacts;
 
 	public ContactHelper(ApplicationManager manager) {
 		super(manager);
 	}
 	
-	public List<ContactData> getContacts() {
-		if (cachedContacts == null) {
-			rebuldCache();
-		}
-		return cachedContacts;
-	}
-	
-	private void rebuldCache() {
-		cachedContacts = new ArrayList<ContactData>();
-		
-		manager.navigateTo().mainPage();
-		List<WebElement> tableRows = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr[@name='entry']"));
-		for (WebElement tableRow : tableRows) {
-			// prepare data
-			String displayEmail = tableRow.findElement(By.xpath("td[4]")).getText();
-			
-			ContactData contact = new ContactData()
-					.withId(Integer.parseInt(tableRow.findElement(By.xpath("td/input")).getAttribute("value")))
-					.withLastName(tableRow.findElement(By.xpath("td[2]")).getText())
-					.withFirstName(tableRow.findElement(By.xpath("td[3]")).getText())
-					.withEmail_1(displayEmail)
-					.withHomePhone(tableRow.findElement(By.xpath("td[5]")).getText());
-			
-			cachedContacts.add(contact);
-		}
-	}
-
 	public ContactHelper createContact(ContactData contact) {
 		manager.navigateTo().addNewContact();
 		fillContactForm(contact, CREATION);
 		submitContactForm();
 		manager.navigateTo().homePage();
-		rebuldCache();
 		return this;
 	}
 	
@@ -61,7 +31,6 @@ public class ContactHelper extends HelperBase {
 		fillContactForm(contact, MODIFICATION);
 		submitUpdate();
 		returnToHomePage();
-		rebuldCache();
 		return this;
 	}
 
@@ -70,7 +39,6 @@ public class ContactHelper extends HelperBase {
 		initContactEdit(index);
 		submitDeleteContact();
 		returnToHomePage();
-		rebuldCache();
 		return this;
 	}
 	
@@ -78,7 +46,6 @@ public class ContactHelper extends HelperBase {
 
 	public ContactHelper submitContactForm() {
 		click(By.name("submit"));
-		cachedContacts = null;
 		return this;
 	}
 
@@ -128,14 +95,33 @@ public class ContactHelper extends HelperBase {
 
 	public ContactHelper submitDeleteContact() {
 		click(By.xpath("//input[@value='Delete']"));
-		cachedContacts = null;
 		return this;
 	}
 
 	public ContactHelper submitUpdate() {
 		click(By.xpath("//input[@value='Update']"));
-		cachedContacts = null;
 		return this;
+	}
+
+	public List<ContactData> getContacts() {
+		List<ContactData> contacts = new ArrayList<ContactData>();
+		
+		manager.navigateTo().mainPage();
+		List<WebElement> tableRows = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr[@name='entry']"));
+		for (WebElement tableRow : tableRows) {
+			// prepare data
+			String displayEmail = tableRow.findElement(By.xpath("td[4]")).getText();
+			
+			ContactData contact = new ContactData()
+					.withId(Integer.parseInt(tableRow.findElement(By.xpath("td/input")).getAttribute("value")))
+					.withLastName(tableRow.findElement(By.xpath("td[2]")).getText())
+					.withFirstName(tableRow.findElement(By.xpath("td[3]")).getText())
+					.withEmail_1(displayEmail)
+					.withHomePhone(tableRow.findElement(By.xpath("td[5]")).getText());
+			
+			contacts.add(contact);
+		}
+		return contacts;
 	}
 
 	public ArrayList<String> getGroupSelectOptions() {
