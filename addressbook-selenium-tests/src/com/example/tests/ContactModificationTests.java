@@ -2,18 +2,18 @@ package com.example.tests;
 
 import static org.testng.Assert.assertEquals;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 import org.testng.annotations.Test;
+
+import com.example.utils.SortedListOf;
 	
 public class ContactModificationTests extends TestBase {
 
 	@Test(dataProvider = "randomValidContactGenerator")
 	public void modifyContact(ContactData contact) {
 		// save initial contacts list
-		List<ContactData> initialContacts = app.getContactHelper().getContacts();
+		SortedListOf<ContactData> initialContacts = app.getContactHelper().getContacts();
 
 		Random rnd = new Random();
 		int index = rnd.nextInt(initialContacts.size());
@@ -21,14 +21,13 @@ public class ContactModificationTests extends TestBase {
 		app.getContactHelper().modifyContact(index, contact);
 
 		// save new contact list
-		List<ContactData> newContacts = app.getContactHelper().getContacts();
+		SortedListOf<ContactData> newContacts = app.getContactHelper().getContacts();
 
 		// compare states
 		ContactData oldContact = initialContacts.get(index);
 		initialContacts.remove(index);
 		oldContact.update(contact);
 		initialContacts.add(oldContact);
-		Collections.sort(initialContacts);
 		assertEquals(newContacts, initialContacts);
 	}
 }

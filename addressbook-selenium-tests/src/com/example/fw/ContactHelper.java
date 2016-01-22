@@ -7,19 +7,20 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.example.tests.ContactData;
+import com.example.utils.SortedListOf;
 
 public class ContactHelper extends HelperBase {
 	
 	public static boolean CREATION = true;
 	public static boolean MODIFICATION = false;
 	
-	private List<ContactData> cachedContacts;
+	private SortedListOf<ContactData> cachedContacts;
 
 	public ContactHelper(ApplicationManager manager) {
 		super(manager);
 	}
 	
-	public List<ContactData> getContacts() {
+	public SortedListOf<ContactData> getContacts() {
 		if (cachedContacts == null) {
 			rebuldCache();
 		}
@@ -27,7 +28,7 @@ public class ContactHelper extends HelperBase {
 	}
 	
 	private void rebuldCache() {
-		cachedContacts = new ArrayList<ContactData>();
+		cachedContacts = new SortedListOf<ContactData>();
 		
 		manager.navigateTo().mainPage();
 		List<WebElement> tableRows = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr[@name='entry']"));

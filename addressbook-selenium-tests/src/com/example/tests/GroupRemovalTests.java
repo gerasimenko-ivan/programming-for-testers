@@ -2,7 +2,6 @@ package com.example.tests;
 
 import static org.testng.Assert.assertEquals;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -34,7 +33,6 @@ public class GroupRemovalTests extends TestBase {
 			SortedListOf<GroupData> newGroups = app.getGroupHelper().getGroups();
 
 			// compare states
-			Collections.sort(initialGroups);
 			assertEquals(newGroups, initialGroups);
 		}
 
