@@ -16,7 +16,7 @@ public class GroupModificationTests extends TestBase {
 		SortedListOf<GroupData> initialGroups = app.getGroupHelper().getGroups();
 	    
 	    Random rnd = new Random();
-	    int index = rnd.nextInt(initialGroups.size() - 1);
+	    int index = rnd.nextInt(initialGroups.size());
 	    
 	    // actions
 	    app.getGroupHelper().modifyGroup(index, group);

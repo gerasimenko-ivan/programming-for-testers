@@ -25,7 +25,7 @@ public class GroupRemovalTests extends TestBase {
 			if (initialGroups.size() < 20)
 				break;
 
-			int index = rnd.nextInt(initialGroups.size() - 1);
+			int index = rnd.nextInt(initialGroups.size());
 
 			app.getGroupHelper().deleteGroup(index);
 			initialGroups.remove(index);

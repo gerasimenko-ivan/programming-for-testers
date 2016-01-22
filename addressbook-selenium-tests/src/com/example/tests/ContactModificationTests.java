@@ -16,7 +16,7 @@ public class ContactModificationTests extends TestBase {
 		List<ContactData> initialContacts = app.getContactHelper().getContacts();
 
 		Random rnd = new Random();
-		int index = rnd.nextInt(initialContacts.size() - 1);
+		int index = rnd.nextInt(initialContacts.size());
 
 		app.getContactHelper().modifyContact(index, contact);
 
