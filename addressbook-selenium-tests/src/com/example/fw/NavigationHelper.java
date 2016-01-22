@@ -22,12 +22,21 @@ public class NavigationHelper extends HelperBase {
 	}
 
 	public NavigationHelper addNewContact() {
-		click(By.linkText("add new"));
+		if (! isOnNewContactPage()) {
+			click(By.linkText("add new"));
+		}
 		return this;
 	}
 
+	private boolean isOnNewContactPage() {
+		/*TODO: add check here*/
+		return false;
+	}
+
 	public NavigationHelper homePage() {
-		click(By.linkText("home"));
+		if (! isOnMainPage()) {
+			click(By.linkText("home"));
+		}
 		return this;
 	}
 
