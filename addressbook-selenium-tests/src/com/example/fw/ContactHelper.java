@@ -65,6 +65,16 @@ public class ContactHelper extends HelperBase {
 		rebuldCache();
 		return this;
 	}
+	
+	public ContactHelper modifyContactById(int id, ContactData contact) {
+		manager.navigateTo().mainPage();
+		initContactEditById(id);
+		fillContactForm(contact, MODIFICATION);
+		submitUpdate();
+		returnToHomePage();
+		rebuldCache();
+		return this;
+	}
 
 	public ContactHelper removeContact(int index) {
 		manager.navigateTo().mainPage();
