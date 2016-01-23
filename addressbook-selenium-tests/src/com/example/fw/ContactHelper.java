@@ -75,6 +75,15 @@ public class ContactHelper extends HelperBase {
 		return this;
 	}
 	
+	public ContactHelper removeContactById(int id) {
+		manager.navigateTo().mainPage();
+		initContactEditById(id);
+		submitDeleteContact();
+		returnToHomePage();
+		rebuldCache();
+		return this;
+	}
+
 	// --------------------------------------------------------------------------
 
 	public ContactHelper submitContactForm() {
@@ -123,6 +132,14 @@ public class ContactHelper extends HelperBase {
 	public ContactHelper initContactEdit(int index) {
 		// (index + 2) - numiration from 1 and 1 is for table header
 		String locator = "//table[@id='maintable']//tr[" + (index + 2) + "]/td/a/img[@title='Edit']";
+		click(By.xpath(locator));
+		return this;
+	}
+	
+	private ContactHelper initContactEditById(int id) {
+		String locator = 
+				"//table[@id='maintable']//tr/td/a[@href='edit.php?id=" + id 
+				+ "']/img[@title='Edit']";
 		click(By.xpath(locator));
 		return this;
 	}

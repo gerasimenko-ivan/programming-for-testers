@@ -57,7 +57,16 @@ public class ContactData implements Comparable<ContactData> {
 			if (comparedFirstName != 0) {
 				return comparedFirstName;
 			} else {
-				return this.id - contact.id;
+				String thisEmail_1 = this.email_1 == null ? "" : this.email_1;
+				String thatEmail_1 = contact.email_1 == null ? "" : contact.email_1;
+				int comparedEmail_1 = thisEmail_1.toLowerCase().compareTo(thatEmail_1.toLowerCase());
+				if (comparedEmail_1 != 0) {
+					return comparedEmail_1;
+				} else {
+					String thisHomePhone = this.homePhone == null ? "" : this.homePhone;
+					String thatHomePhone = contact.homePhone == null ? "" : contact.homePhone;
+					return thisHomePhone.toLowerCase().compareTo(thatHomePhone.toLowerCase());
+				}
 			}
 			
 		}
