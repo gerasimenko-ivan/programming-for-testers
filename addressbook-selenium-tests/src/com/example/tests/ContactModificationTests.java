@@ -1,6 +1,7 @@
 package com.example.tests;
 
-import static org.testng.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 import java.util.Random;
 
@@ -26,9 +27,7 @@ public class ContactModificationTests extends TestBase {
 
 		// compare states
 		ContactData oldContact = initialContacts.get(index);
-		initialContacts.remove(index);
 		oldContact.update(contact);
-		initialContacts.add(oldContact);
-		assertEquals(newContacts, initialContacts);
+		assertThat(newContacts, equalTo(initialContacts.without(index).withAdded(oldContact)));
 	}
 }

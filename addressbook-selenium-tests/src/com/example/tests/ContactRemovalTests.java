@@ -1,6 +1,7 @@
 package com.example.tests;
 
-import static org.testng.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 import java.util.Random;
 
@@ -16,18 +17,19 @@ public class ContactRemovalTests extends TestBase {
 		SortedListOf<ContactData> initialContacts = app.getContactHelper().getContacts();
 
 		for (int i = 0; i < 25 && initialContacts.size() > 20; i++) {
+			initialContacts = app.getContactHelper().getContacts();
+			
 			Random rnd = new Random();
 			int index = rnd.nextInt(initialContacts.size());
 
 			int removedContactId = initialContacts.get(index).getId();
 			app.getContactHelper().removeContactById(removedContactId);
-			initialContacts.remove(index);
 
 			// save new contact list
 			SortedListOf<ContactData> newContacts = app.getContactHelper().getContacts();
 
 			// compare states
-			assertEquals(newContacts, initialContacts);
+			assertThat(newContacts, equalTo(initialContacts.without(index)));
 		}
 	}
 }
