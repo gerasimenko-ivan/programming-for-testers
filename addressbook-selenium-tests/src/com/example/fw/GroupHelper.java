@@ -71,6 +71,7 @@ public class GroupHelper extends HelperBase {
 		}
 		submitDeleteGroups();
 		returnToGroupsPage();
+		rebuildCache();
 		return this;
 	}
 	
