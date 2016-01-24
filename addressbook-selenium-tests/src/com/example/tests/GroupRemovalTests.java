@@ -1,8 +1,7 @@
 package com.example.tests;
 
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
-import static org.testng.Assert.assertEquals;
-import static org.hamcrest.Matchers.*;
 
 import java.util.List;
 import java.util.Random;
@@ -57,7 +56,7 @@ public class GroupRemovalTests extends TestBase {
 			SortedListOf<GroupData> newGroups = app.getGroupHelper().getGroups();
 
 			// compare states
-			assertEquals(newGroups, initialGroups.without(indexes));	
+			assertThat(newGroups, equalTo(initialGroups.without(indexes)));	
 		}
 
 	}
