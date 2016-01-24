@@ -35,7 +35,11 @@ public class GroupDataGenerator {
 	}
 
 	private static void saveGroupsToCsvFile(List<GroupData> groups, File file) throws IOException {
-		FileWriter writer = new FileWriter(file);		
+		FileWriter writer = new FileWriter(file);	
+		for (GroupData group : groups) {
+			writer.write(group.getName() + "," + group.getHeader() + "," + group.getFooter() + "\n");
+		}
+		writer.close();
 	}
 
 	public static List<GroupData> generateRandomGroups(int amount) {

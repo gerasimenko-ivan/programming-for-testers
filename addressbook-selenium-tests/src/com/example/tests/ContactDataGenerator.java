@@ -39,6 +39,7 @@ public class ContactDataGenerator {
 
 	private static void saveContactsToCsvFile(List<ContactData> groups, File file) throws IOException {
 		FileWriter writer = new FileWriter(file);
+		writer.close();
 	}
 
 	public static List<ContactData> generateRandomContacts(int amount) {
