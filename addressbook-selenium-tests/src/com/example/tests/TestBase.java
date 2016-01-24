@@ -1,5 +1,8 @@
 package com.example.tests;
 
+import static com.example.tests.GroupDataGenerator.generateRandomGroups;
+import static com.example.tests.GroupDataGenerator.generateRandomString;
+
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,17 +35,17 @@ public class TestBase {
 
 	@DataProvider
 	public Iterator<Object[]> randomValidGroupGenerator() {
-		List<Object[]> list = new ArrayList<Object[]>();
-		for (int i = 0; i < 15; i++) {
-			GroupData group = new GroupData()
-					.withName(generateRandomString())
-					.withHeader(generateRandomString())
-					.withFooter(generateRandomString());
-			list.add(new Object[] { group });
-		}
-		return list.iterator();
+		return wrapGroupsForDataProvider(generateRandomGroups(15)).iterator();
 	}
 	
+	private List<Object[]> wrapGroupsForDataProvider(List<GroupData> groups) {
+		List<Object[]> list = new ArrayList<Object[]>();
+		for (GroupData group : groups) {
+			list.add(new Object[] { group });
+		}
+		return list;
+	}
+
 	@DataProvider
 	public Iterator<Object[]> randomValidContactGenerator() {
 		app.navigateTo().mainPage();
@@ -88,15 +91,6 @@ public class TestBase {
 	// ==========================================================================
 	// test data generators
 	// ==========================================================================
-
-	public String generateRandomString() {
-		Random rnd = new Random();
-		if (rnd.nextInt(3) == 0) {
-			return "";
-		} else {
-			return "test " + rnd.nextInt();
-		}
-	}
 
 	public String generateValidPhoneNumber() {
 		Random rnd = new Random();
