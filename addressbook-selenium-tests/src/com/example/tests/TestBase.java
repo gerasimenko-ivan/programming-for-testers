@@ -47,9 +47,7 @@ public class TestBase {
 
 	@DataProvider
 	public Iterator<Object[]> randomValidContactGenerator() {
-		List<ContactData> contacts = generateRandomContacts(5);
-		List<Object[]> list = wrapContactsForDataProvider(contacts);
-		return list.iterator();
+		return wrapContactsForDataProvider(generateRandomContacts(5)).iterator();
 	}
 	
 	private List<Object[]> wrapContactsForDataProvider(List<ContactData> contacts) {
