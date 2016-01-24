@@ -19,6 +19,10 @@ public class GroupDataGenerator {
 		File file = new File(args[1]);
 		String format = args[2];
 		
+		if (file.exists()) {
+			System.out.println("File exists, please remove it manually: \"" + file + "\"");
+		}
+		
 		List<GroupData> groups = generateRandomGroups(amount);
 		if ("csv".equals(format)) {
 			saveGroupsToCsvFile(groups, file);
