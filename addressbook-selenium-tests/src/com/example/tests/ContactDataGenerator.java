@@ -22,6 +22,10 @@ public class ContactDataGenerator {
 		File file = new File(args[1]);
 		String format = args[2];
 		
+		if (file.exists()) {
+			System.out.println("File exists, please remove it manually: \"" + file + "\"");
+		}
+		
 		List<ContactData> groups = generateRandomContacts(amount);
 		if ("csv".equals(format)) {
 			saveContactsToCsvFile(groups, file);
@@ -37,8 +41,27 @@ public class ContactDataGenerator {
 		
 	}
 
-	private static void saveContactsToCsvFile(List<ContactData> groups, File file) throws IOException {
+	private static void saveContactsToCsvFile(List<ContactData> contacts, File file) throws IOException {
 		FileWriter writer = new FileWriter(file);
+		for (ContactData contact : contacts) {
+			writer.write(
+					contact.getId() + "," +
+					contact.getFirstName() + "," +
+					contact.getLastName() + "," +
+					contact.getAddress() + "," +
+					contact.getHomePhone() + "," +
+					contact.getMobilePhone() + "," +
+					contact.getWorkPhone() + "," +
+					contact.getEmail_1() + "," +
+					contact.getEmail_2() + "," +
+					contact.getBirthDay() + "," +
+					contact.getBirthMonth() + "," +
+					contact.getBirthYear() + "," +
+					contact.getContactGroup() + "," +
+					contact.getAddressSecondary() + "," +
+					contact.getPhoneSecondary()  + "\n"
+					);
+		}
 		writer.close();
 	}
 
