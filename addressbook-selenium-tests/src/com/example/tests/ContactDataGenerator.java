@@ -3,6 +3,8 @@ package com.example.tests;
 import static com.example.tests.GroupDataGenerator.generateRandomString;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +12,7 @@ import java.util.Random;
 
 public class ContactDataGenerator {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		if (args.length < 3) {
 			System.out.println("Please specify parameters: <amount of test data> <file> <format>");
 			return;
@@ -35,9 +37,8 @@ public class ContactDataGenerator {
 		
 	}
 
-	private static void saveContactsToCsvFile(List<ContactData> groups, File file) {
-		// TODO Auto-generated method stub
-		
+	private static void saveContactsToCsvFile(List<ContactData> groups, File file) throws IOException {
+		FileWriter writer = new FileWriter(file);
 	}
 
 	public static List<ContactData> generateRandomContacts(int amount) {

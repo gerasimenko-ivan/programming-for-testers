@@ -1,13 +1,15 @@
 package com.example.tests;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class GroupDataGenerator {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		if (args.length < 3) {
 			System.out.println("Please specify parameters: <amount of test data> <file> <format>");
 			return;
@@ -32,9 +34,8 @@ public class GroupDataGenerator {
 		
 	}
 
-	private static void saveGroupsToCsvFile(List<GroupData> groups, File file) {
-		// TODO Auto-generated method stub
-		
+	private static void saveGroupsToCsvFile(List<GroupData> groups, File file) throws IOException {
+		FileWriter writer = new FileWriter(file);		
 	}
 
 	public static List<GroupData> generateRandomGroups(int amount) {
