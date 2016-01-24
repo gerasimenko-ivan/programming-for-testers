@@ -52,14 +52,13 @@ public class GroupRemovalTests extends TestBase {
 			List<Integer> indexes = 
 					generateRandomIntegersList(5 + rnd.nextInt(5), initialGroups.size());
 			app.getGroupHelper().deleteGroups(indexes);
-			app.getGroupHelper().removeGroups(indexes, initialGroups);
+			
+			// save new groups
+			SortedListOf<GroupData> newGroups = app.getGroupHelper().getGroups();
+
+			// compare states
+			assertEquals(newGroups, initialGroups.without(indexes));	
 		}
-
-		// save new groups
-		SortedListOf<GroupData> newGroups = app.getGroupHelper().getGroups();
-
-		// compare states
-		assertEquals(newGroups, initialGroups);
 
 	}
 

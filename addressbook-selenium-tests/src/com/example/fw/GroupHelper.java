@@ -123,10 +123,4 @@ public class GroupHelper extends HelperBase {
 		return this;
 	}
 
-	public void removeGroups(List<Integer> indexes, List<GroupData> initialGroups) {
-		for (int j = indexes.size() - 1; j >= 0; j--) {
-			initialGroups.remove(indexes.get(j).intValue());
-		}
-	}
-
 }
