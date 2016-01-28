@@ -107,7 +107,7 @@ public class ContactDataGenerator {
 			ContactData contact = new ContactData()
 					.withFirstName(generateRandomString())
 					.withLastName(generateRandomString())
-					.withAddress(generateRandomString() + "\n" + generateRandomString())
+					.withAddress(generateRandomString() + " " + generateRandomString())
 					.withHomePhone(generateValidPhoneNumber())
 					.withMobilePhone(generateValidPhoneNumber())
 					.withWorkPhone(generateValidPhoneNumber())
@@ -117,7 +117,7 @@ public class ContactDataGenerator {
 					.withBirthMonth(generateRandomMonth(true, "-"))
 					.withBirthYear(Integer.toString(1900 + rnd.nextInt(115)))
 					.withGroup("[none]")
-					.withAddressSecondary(generateRandomString() + "\n" + generateRandomString())
+					.withAddressSecondary(generateRandomString() + " " + generateRandomString())
 					.withPhoneSecondary(generateValidPhoneNumber());
 			
 			// move single email_2 to first position
