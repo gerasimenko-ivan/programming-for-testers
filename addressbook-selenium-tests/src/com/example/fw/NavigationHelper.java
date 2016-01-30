@@ -16,11 +16,8 @@ public class NavigationHelper extends HelperBase {
 	}
 
 	private boolean isOnGroupsPage() {
-		manager.clearTimeout();
-		boolean isOnGroupsPage = driver.getCurrentUrl().contains("/group.php")
-				&& driver.findElements(By.name("new_group")).size() > 0;
-		manager.setTimeout();
-		return isOnGroupsPage;
+		return driver.getCurrentUrl().contains("/group.php") 
+				&& hasElementsNoWait(By.name("new_group")); 
 	}
 
 	public NavigationHelper addNewContact() {
@@ -31,11 +28,7 @@ public class NavigationHelper extends HelperBase {
 	}
 
 	private boolean isOnNewContactPage() {
-		manager.clearTimeout();
-		boolean isOnNewContactPage = 
-				driver.findElements(By.xpath("//*[@id='content']/form/input[@value='Enter']")).size() != 0;
-		manager.setTimeout();
-		return isOnNewContactPage;
+		return hasElementsNoWait(By.xpath("//*[@id='content']/form/input[@value='Enter']"));
 	}
 
 	public NavigationHelper homePage() {
@@ -52,10 +45,14 @@ public class NavigationHelper extends HelperBase {
 	}
 
 	private boolean isOnMainPage() {
+		return hasElementsNoWait(By.id("maintable"));
+	}
+	
+	private boolean hasElementsNoWait(By locator) {
 		manager.clearTimeout();
-		boolean isOnMainPage = driver.findElements(By.id("maintable")).size() != 0;
+		boolean isOnPage = driver.findElements(locator).size() != 0;
 		manager.setTimeout();
-		return isOnMainPage;
+		return isOnPage;
 	}
 
 }
