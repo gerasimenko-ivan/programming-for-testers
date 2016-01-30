@@ -81,6 +81,12 @@ public class ContactDataGenerator {
 	// data loaders
 	// ==========================================================================
 	
+	public static List<ContactData> loadContactsFromXmlFile(File file) throws IOException {
+		XStream xstream = new XStream();
+		xstream.alias("contact", ContactData.class);
+		return (List<ContactData>)xstream.fromXML(file); 
+	}
+	
 	public static List<ContactData> loadContactsFromCsvFile(File file) throws IOException {
 		List<ContactData> list = new ArrayList<ContactData>();
 		FileReader reader = new FileReader(file);
