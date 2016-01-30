@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.thoughtworks.xstream.XStream;
+
 public class GroupDataGenerator {
 
 	public static void main(String[] args) throws IOException {
@@ -34,10 +36,17 @@ public class GroupDataGenerator {
 			System.out.println("Unknown format <" + format + ">");
 		}
 	}
+	
+	// ==========================================================================
+	// data savers
+	// ==========================================================================
 
-	private static void saveGroupsToXmlFile(List<GroupData> groups, File file) {
-		// TODO Auto-generated method stub
-		
+	private static void saveGroupsToXmlFile(List<GroupData> groups, File file) throws IOException {
+		XStream xstream = new XStream();
+		String xml = xstream.toXML(groups);
+		FileWriter writer = new FileWriter(file);
+		writer.write(xml);
+		writer.close();
 	}
 
 	private static void saveGroupsToCsvFile(List<GroupData> groups, File file) throws IOException {
@@ -49,6 +58,14 @@ public class GroupDataGenerator {
 					group.getFooter() + ",!\n");
 		}
 		writer.close();
+	}
+	
+	// ==========================================================================
+	// data loaders
+	// ==========================================================================
+	
+	public static List<GroupData> loadGroupsFromXmlFile(File file) throws IOException {
+		return null;
 	}
 	
 	public static List<GroupData> loadGroupsFromCsvFile(File file) throws IOException {
@@ -68,7 +85,11 @@ public class GroupDataGenerator {
 		bufferedReader.close();
 		return list;
 	}
-
+	
+	// ==========================================================================
+	// data generators
+	// ==========================================================================
+	
 	public static List<GroupData> generateRandomGroups(int amount) {
 		List<GroupData> list = new ArrayList<GroupData>();
 		for (int i = 0; i < amount; i++) {
