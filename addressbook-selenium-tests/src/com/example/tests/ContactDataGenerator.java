@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.thoughtworks.xstream.XStream;
+
 public class ContactDataGenerator {
 
 	public static void main(String[] args) throws IOException {
@@ -37,10 +39,18 @@ public class ContactDataGenerator {
 			System.out.println("Unknown format <" + format + ">");
 		}
 	}
+	
+	// ==========================================================================
+	// data savers
+	// ==========================================================================
 
-	private static void saveContactsToXmlFile(List<ContactData> groups, File file) {
-		// TODO Auto-generated method stub
-		
+	private static void saveContactsToXmlFile(List<ContactData> contacts, File file) throws IOException {
+		XStream xstream = new XStream();
+		xstream.alias("contact", ContactData.class);
+		String xml = xstream.toXML(contacts);
+		FileWriter writer = new FileWriter(file);
+		writer.write(xml);
+		writer.close();
 	}
 
 	private static void saveContactsToCsvFile(List<ContactData> contacts, File file) throws IOException {
@@ -66,6 +76,10 @@ public class ContactDataGenerator {
 		}
 		writer.close();
 	}
+	
+	// ==========================================================================
+	// data loaders
+	// ==========================================================================
 	
 	public static List<ContactData> loadContactsFromCsvFile(File file) throws IOException {
 		List<ContactData> list = new ArrayList<ContactData>();
