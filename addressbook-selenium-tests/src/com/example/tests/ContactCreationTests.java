@@ -19,7 +19,7 @@ public class ContactCreationTests extends TestBase {
 	public Iterator<Object[]> contactsFromFile() throws IOException {
 		return wrapContactsForDataProvider(loadContactsFromCsvFile(new File("test-input\\contacts.txt"))).iterator();
 	}
-
+	
 	@Test(dataProvider = "contactsFromFile")
 	public void testValidContactCreation(ContactData contact) throws Exception {
 		// save initial contacts list
