@@ -68,7 +68,9 @@ public class GroupDataGenerator {
 	// ==========================================================================
 	
 	public static List<GroupData> loadGroupsFromXmlFile(File file) throws IOException {
-		return null;
+		XStream xstream = new XStream();
+		xstream.alias("group", GroupData.class);
+		return (List<GroupData>)xstream.fromXML(file); 
 	}
 	
 	public static List<GroupData> loadGroupsFromCsvFile(File file) throws IOException {
