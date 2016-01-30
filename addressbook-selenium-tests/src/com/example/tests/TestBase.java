@@ -2,7 +2,10 @@ package com.example.tests;
 
 import static com.example.tests.ContactDataGenerator.generateRandomContacts;
 import static com.example.tests.GroupDataGenerator.generateRandomGroups;
+import static com.example.tests.GroupDataGenerator.loadGroupsFromXmlFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -31,10 +34,15 @@ public class TestBase {
 	// ==========================================================================
 	// Data Providers
 	// ==========================================================================
+	
+	@DataProvider
+	public Iterator<Object[]> groupsFromFile() throws IOException {
+		return wrapGroupsForDataProvider(loadGroupsFromXmlFile(new File("test-input\\groups.xml"))).iterator();
+	}
 
 	@DataProvider
 	public Iterator<Object[]> randomValidGroupGenerator() {
-		return wrapGroupsForDataProvider(generateRandomGroups(15)).iterator();
+		return wrapGroupsForDataProvider(generateRandomGroups(5)).iterator();
 	}
 	
 	protected static List<Object[]> wrapGroupsForDataProvider(List<GroupData> groups) {
