@@ -11,6 +11,8 @@ import java.util.Random;
 
 import com.thoughtworks.xstream.XStream;
 
+
+
 public class GroupDataGenerator {
 
 	public static void main(String[] args) throws IOException {
