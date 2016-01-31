@@ -1,0 +1,1 @@
+java -cp bin;C:\Tools\Xml\xstream-1.4.8\lib\xstream-1.4.8.jar;C:\Tools\Xml\xstream-1.4.8\lib\xstream\xpp3_min-1.1.4c.jar;C:\Tools\FunctionalTesting\selenium-server-standalone-2.48.2.jar org.testng.TestNG %1
