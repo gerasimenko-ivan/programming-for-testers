@@ -1,0 +1,33 @@
+<list>
+  <group>
+    <name></name>
+    <header>test -1276458498</header>
+    <footer>test -1488993278</footer>
+  </group>
+  <group>
+    <name>test multiline</name>
+    <header>test 388460139
+    test
+    test
+    test</header>
+    <footer>test 1385868931
+    test
+    test
+    test</footer>
+  </group>
+  <group>
+    <name></name>
+    <header></header>
+    <footer>test 1727339646</footer>
+  </group>
+  <group>
+    <name>test -1749165289</name>
+    <header>test 2032566002</header>
+    <footer>test -1867504099</footer>
+  </group>
+  <group>
+    <name>test 1208936995</name>
+    <header>test -1827284054</header>
+    <footer>test -1769056771</footer>
+  </group>
+</list>
